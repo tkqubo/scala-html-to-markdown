@@ -5,7 +5,7 @@ import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.nodes._
 import collection.JavaConversions._
 
-class MarkdownConverter private (rules: Seq[ConversionRule]) {
+class MarkdownConverter private (val rules: Seq[ConversionRule]) {
   def convert(node: Node): String = {
     node match {
       case element: Element =>
@@ -14,8 +14,20 @@ class MarkdownConverter private (rules: Seq[ConversionRule]) {
           .map(rule => rule.convert(node.toMarkdown, element))
           .getOrElse(node.toMarkdown)
       case _ => node.toMarkdown
-          }
     }
+  }
+
+  //noinspection ScalaStyle
+  def ++(that: MarkdownConverter): MarkdownConverter =
+    new MarkdownConverter(this.rules ++ that.rules)
+
+  //noinspection ScalaStyle
+  def +(rule: ConversionRule): MarkdownConverter =
+    new MarkdownConverter(this.rules :+ rule)
+
+  //noinspection ScalaStyle
+  def +:(rule: ConversionRule): MarkdownConverter =
+    new MarkdownConverter(rule +: this.rules)
 }
 
 object MarkdownConverter {
