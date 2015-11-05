@@ -64,6 +64,14 @@ class Html2MarkdownSpec
         toMarkdown("""<img src="image.gif" title="sample">""") === """![](image.gif "sample")"""
       }
     }
+    "render <pre><code>...</pre></code>" in {
+      toMarkdown(
+        """<pre><code>
+          |class Html2Markdown {
+          |  val msg = "yo"
+          |}
+          |</code></pre>""".stripMargin) === "\n\n    class Html2Markdown {\n      val msg = \"yo\"\n    }\n\n"
+    }
   }
 }
 

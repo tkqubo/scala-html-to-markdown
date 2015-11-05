@@ -3,6 +3,7 @@ package com.github.tkqubo.html2md.converters
 import com.github.tkqubo.html2md.ConversionRule
 import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.nodes._
+import collection.JavaConversions._
 
 class MarkdownConverter private (rules: Seq[ConversionRule]) {
   def convert(node: Node): String = {
@@ -35,9 +36,9 @@ object MarkdownConverter {
 
     'hr -> "\n\n* * *\n\n",
 
-    Seq('em, 'i) -> { (content: String) => s"_${content}_" },
+    Seq('em, 'i) -> { content: String => s"_${content}_" },
 
-    Seq('strong, 'b) -> { (content: String) => s"**$content**" },
+    Seq('strong, 'b) -> { content: String => s"**$content**" },
 
     // inline code
     { e: Element =>
@@ -45,7 +46,7 @@ object MarkdownConverter {
       val hasSiblings = e.nextSibling != null || e.previousSibling != null
       val isCodeBlock = e.parent.tagName == "pre" && !hasSiblings
       e.tagName == "code" && !isCodeBlock
-    } -> { (code: String) => s"`$code`" },
+    } -> { code: String => s"`$code`" },
 
     // <a> with href attr
     { e: Element =>
@@ -55,13 +56,18 @@ object MarkdownConverter {
       s"""[$text](${e.attr("href")}$titlePart)"""
     },
 
-    'img -> { (e: Element) =>
+    'img -> { e: Element =>
       val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
       if (e.hasAttr("src")) {
         s"""![${e.attr("alt")}](${e.attr("src")}$titlePart)"""
       } else {
         ""
       }
-    }
+    },
+
+    // code blocks
+    { e: Element =>
+      e.tagName() == "pre" && e.children().headOption.exists(_.tagName() == "code")
+    } -> { e: Element => s"\n\n    ${e.children().head.text.replaceAll("\n", "\n    ")}\n\n" }
   )
 }
