@@ -13,11 +13,11 @@ class Html2Markdown(val converter: MarkdownConverter) {
     // Escape potential ol triggers
     val mdEscapedHtml = """(\d+)\. """.r.replaceAllIn(html, """\1\\. """)
 
-    val document: Document = Jsoup.parse(mdEscapedHtml)
-    val elements: Seq[Node] = flatten(document).reverse
+    val body: Element = Jsoup.parse(mdEscapedHtml).body()
+    val elements: Seq[Node] = flatten(body).reverse
     elements.foreach(provideMarkdownText)
 
-    document.toMarkdown
+    body.toMarkdown
   }
 
   private def flatten(node: Node): Seq[Node] = {

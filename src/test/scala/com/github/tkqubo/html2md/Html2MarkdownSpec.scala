@@ -123,6 +123,14 @@ class Html2MarkdownSpec
           |""".stripMargin) ===
         "\n\n1.  nested\n        \n    \n    *  list 1\n    *  list 2\n    *  list 3\n\n\n"
     }
+    "render <div>" in {
+      toMarkdown("""<div id="d1" class="division">content</div>""") ===
+        "\n\n<div id=\"d1\" class=\"division\">\n content\n</div>\n\n"
+    }
+    "render <span>" in {
+      toMarkdown("""<span id="i1" class="main">content</span>""") ===
+        """<span id="i1" class="main">content</span>"""
+    }
   }
 }
 

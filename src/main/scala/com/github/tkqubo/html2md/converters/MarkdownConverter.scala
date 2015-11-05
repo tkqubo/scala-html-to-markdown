@@ -7,17 +7,15 @@ import collection.JavaConversions._
 
 class MarkdownConverter private (rules: Seq[ConversionRule]) {
   def convert(node: Node): String = {
-    var markdownText = node.toMarkdown
     node match {
       case element: Element =>
         rules
-          .filter(_.shouldConvert(element))
-          .foreach { converter =>
-            markdownText = converter.convert(markdownText, element)
+          .find(_.shouldConvert(element))
+          .map(rule => rule.convert(node.toMarkdown, element))
+          .getOrElse(node.toMarkdown)
+      case _ => node.toMarkdown
           }
     }
-    markdownText
-  }
 }
 
 object MarkdownConverter {
@@ -95,6 +93,16 @@ object MarkdownConverter {
       } else {
         s"\n\n$children\n\n"
       }
+    },
+
+    // block element
+    { e: Element => e.isBlock } -> { (content: String, e: Element) =>
+      s"\n\n${e.clone.html(content).outerHtml}\n\n"
+    },
+
+    // anything else
+    { _: Element => true } -> { (content: String, e: Element) =>
+      e.clone.html(content).outerHtml
     }
   )
 }
