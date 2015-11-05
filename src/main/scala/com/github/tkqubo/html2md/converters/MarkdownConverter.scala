@@ -7,7 +7,7 @@ import collection.JavaConversions._
 
 class MarkdownConverter private (rules: Seq[ConversionRule]) {
   def convert(node: Node): String = {
-    var markdownText = node.markdownText
+    var markdownText = node.toMarkdown
     node match {
       case element: Element =>
         rules
@@ -76,6 +76,26 @@ object MarkdownConverter {
         .replaceAll("\n{3,}", "\n\n")
         .replaceAll("(?m)^", "> ")
       s"\n\n$replacement\n\n"
+    },
+
+    'li -> { (content: String, e: Element) =>
+      val replacement = content.trim.replaceAll("\n", "\n    ")
+      val index = e.parent.children.indexOf(e) + 1
+      val prefix = if (e.parentNode().nodeName() == "ol") s"$index." else "*"
+      s"$prefix  $replacement"
+    },
+
+    Seq('ul, 'ol) -> { (content: String, e: Element) =>
+      val children = e
+        .children
+        .filter(_.nodeName == "li")
+        .map(_.toMarkdown)
+        .mkString("\n")
+      if (e.parentNode.nodeName == "li") {
+        s"\n\n$children"
+      } else {
+        s"\n\n$children\n\n"
+      }
     }
   )
 }

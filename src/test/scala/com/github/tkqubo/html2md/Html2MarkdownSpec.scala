@@ -84,6 +84,15 @@ class Html2MarkdownSpec
           |line 4
           |</blockquote>""".stripMargin) === "\n\n> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4\n\n"
     }
+    "render <ol>" in {
+      toMarkdown(
+        """
+          |<ol>
+          |  <li>list 1</li>
+          |  <li>list 2
+          |</ol>
+          |""".stripMargin) === "\n\n1.  list 1\n2.  list 2\n\n\n"
+    }
   }
 }
 

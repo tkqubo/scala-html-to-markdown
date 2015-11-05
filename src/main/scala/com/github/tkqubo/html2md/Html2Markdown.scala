@@ -8,8 +8,7 @@ import collection.JavaConversions._
 
 import scala.collection.mutable.ListBuffer
 
-object Html2Markdown {
-  val markdownAttribute = "data-converted-markdown"
+class Html2Markdown(val converter: MarkdownConverter) {
   def toMarkdown(html: String): String = {
     // Escape potential ol triggers
     val mdEscapedHtml = """(\d+)\. """.r.replaceAllIn(html, """\1\\. """)
@@ -18,7 +17,7 @@ object Html2Markdown {
     val elements: Seq[Node] = flatten(document).reverse
     elements.foreach(provideMarkdownText)
 
-    document.markdownText
+    document.toMarkdown
   }
 
   private def flatten(node: Node): Seq[Node] = {
@@ -39,7 +38,7 @@ object Html2Markdown {
       case _ if isBlankNode(node) =>
         ""
       case node: Element =>
-        MarkdownConverter.Default.convert(node)
+        converter.convert(node)
       case node: TextNode =>
         node.getWholeText
       case x => x.outerHtml()
@@ -48,6 +47,11 @@ object Html2Markdown {
   }
 
   private def isBlankNode(node: Node): Boolean = {
-    node.nonEmptyTag && node.markdownText.trim.isEmpty
+    node.nonEmptyTag && node.toMarkdown.trim.isEmpty
   }
+}
+
+object Html2Markdown {
+  def toMarkdown(html: String, converter: MarkdownConverter = MarkdownConverter.Default): String =
+    new Html2Markdown(converter).toMarkdown(html)
 }
