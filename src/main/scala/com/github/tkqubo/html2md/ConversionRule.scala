@@ -2,22 +2,60 @@ package com.github.tkqubo.html2md
 
 import org.jsoup.nodes.Element
 
-class ConversionRule(converter: ((String, Element) => String), matcher: Element => Boolean) {
+case class ConversionRule(
+  matcher: Matcher,
+  converter: Converter
+) {
   def shouldConvert(element: Element): Boolean = matcher(element)
   def convert(content: String, element: Element): String = converter(content, element)
 }
 
 object ConversionRule {
-  implicit def toRule(tuple: (String, String)): ConversionRule =
-    new ConversionRule(converter = { (content, element) => tuple._2}, matcher = {_.tagName() == tuple._1})
-  implicit def toRule(tuple: (Symbol, String)): ConversionRule = toRule((tuple._1.name, tuple._2))
+  private def byName(tagName: String): Element => Boolean = {_.tagName() == tagName}
+  private def byNames(tagNames: Seq[String]): Element => Boolean = {element => tagNames.contains(element.tagName()) }
 
-  implicit def toRule(tuple: (String, String => String)): ConversionRule =
-    new ConversionRule(converter = { (content, element) => tuple._2(content) }, matcher = {_.tagName() == tuple._1})
-  implicit def toRule(tuple: (Symbol, String => String)): ConversionRule = toRule((tuple._1.name, tuple._2))
+  private def constant(text: String): Converter = { (content, element) => text }
 
-  implicit def toRule(tuple: (String, (String, Element) => String)): ConversionRule =
-    new ConversionRule(converter = tuple._2, matcher = {_.tagName() == tuple._1})
-  implicit def toRule(tuple: (Symbol, (String, Element) => String)): ConversionRule = toRule((tuple._1.name, tuple._2))
+  private def fromString(converter: StringConverter): Converter = { (content, element) =>
+    converter(content)
+  }
+
+  implicit def stringAndString(tuple: (String, String)): ConversionRule =
+    ConversionRule(byName(tuple._1), constant(tuple._2))
+  implicit def symbolAndString(tuple: (Symbol, String)): ConversionRule =
+    stringAndString((tuple._1.name, tuple._2))
+
+  implicit def stringAndStringConverter(tuple: (String, StringConverter)): ConversionRule =
+    ConversionRule(byName(tuple._1), fromString(tuple._2))
+  implicit def symbolAndStringConverter(tuple: (Symbol, StringConverter)): ConversionRule =
+    stringAndStringConverter((tuple._1.name, tuple._2))
+
+  implicit def stringAndConverter(tuple: (String, Converter)): ConversionRule =
+    ConversionRule(byName(tuple._1), tuple._2)
+  implicit def symbolAndConverter(tuple: (Symbol, Converter)): ConversionRule =
+    stringAndConverter((tuple._1.name, tuple._2))
+
+  implicit def stringsAndString(tuple: (Seq[String], String)): ConversionRule =
+    ConversionRule(byNames(tuple._1), constant(tuple._2))
+  implicit def symbolsAndString(tuple: (Seq[Symbol], String)): ConversionRule =
+    stringsAndString((tuple._1.map(_.name), tuple._2))
+
+  implicit def stringsAndStringConverter(tuple: (Seq[String], StringConverter)): ConversionRule =
+    ConversionRule(byNames(tuple._1), fromString(tuple._2))
+  implicit def symbolsAndStringConverter(tuple: (Seq[Symbol], StringConverter)): ConversionRule =
+    stringsAndStringConverter((tuple._1.map(_.name), tuple._2))
+
+  implicit def stringsAndConverter(tuple: (Seq[String], Converter)): ConversionRule =
+    ConversionRule(byNames(tuple._1), tuple._2)
+  implicit def symbolsAndConverter(tuple: (Seq[Symbol], Converter)): ConversionRule =
+    stringsAndConverter((tuple._1.map(_.name), tuple._2))
+
+  implicit def matcherAndString(tuple: (Matcher, String)): ConversionRule =
+    ConversionRule(tuple._1, constant(tuple._2))
+  implicit def matcherAndStringConverter(tuple: (Matcher, StringConverter)): ConversionRule =
+    ConversionRule(tuple._1, fromString(tuple._2))
+  implicit def matcherAndConverter(tuple: (Matcher, Converter)): ConversionRule =
+    ConversionRule(tuple._1, tuple._2)
+
 }
 
