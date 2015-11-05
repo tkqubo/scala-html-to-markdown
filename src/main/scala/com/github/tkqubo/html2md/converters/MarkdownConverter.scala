@@ -22,7 +22,7 @@ class MarkdownConverter private (rules: Seq[ConversionRule]) {
 object MarkdownConverter {
   private def createInstance(rules: ConversionRule*) = new MarkdownConverter(rules)
 
-  val DefaultMarkdownConverter = createInstance(
+  val Default = createInstance(
     'p -> { content: String => s"\n\n$content\n\n" },
 
     'br -> "  \n",
@@ -37,6 +37,22 @@ object MarkdownConverter {
 
     Seq('em, 'i) -> { (content: String) => s"_${content}_" },
 
-    Seq('strong, 'b) -> { (content: String) => s"**$content**" }
+    Seq('strong, 'b) -> { (content: String) => s"**$content**" },
+
+    // inline code
+    { e: Element =>
+      //noinspection ScalaStyle
+      val hasSiblings = e.nextSibling != null || e.previousSibling != null
+      val isCodeBlock = e.parent.tagName == "pre" && !hasSiblings
+      e.tagName == "code" && !isCodeBlock
+    } -> { (code: String) => s"`$code`" },
+
+    // <a> with href attr
+    { e: Element =>
+      e.tagName() == "a" && e.hasAttr("href")
+    } -> { (text: String, e: Element) =>
+      val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
+      s"""[$text](${e.attr("href")}$titlePart)"""
+    }
   )
 }

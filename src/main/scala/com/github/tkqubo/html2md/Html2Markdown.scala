@@ -39,7 +39,7 @@ object Html2Markdown {
       case _ if isBlankNode(node) =>
         ""
       case node: Element =>
-        MarkdownConverter.DefaultMarkdownConverter.convert(node)
+        MarkdownConverter.Default.convert(node)
       case node: TextNode =>
         node.text()
       case x => x.outerHtml()
@@ -48,6 +48,6 @@ object Html2Markdown {
   }
 
   private def isBlankNode(node: Node): Boolean = {
-    node.nonEmptyTag && !node.nodeName().startsWith("A") && node.markdownText.trim.isEmpty
+    node.nonEmptyTag && node.markdownText.trim.isEmpty
   }
 }
