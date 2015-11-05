@@ -93,6 +93,16 @@ class Html2MarkdownSpec
           |</ol>
           |""".stripMargin) === "\n\n1.  list 1\n2.  list 2\n\n\n"
     }
+    "render <ul>" in {
+      toMarkdown(
+        """
+          |<ul>
+          |  <li>list 1</li>
+          |  <li>list 2
+          |  <li>list 3
+          |</ul>
+          |""".stripMargin) === "\n\n*  list 1\n*  list 2\n*  list 3\n\n\n"
+    }
   }
 }
 
