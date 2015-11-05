@@ -13,13 +13,18 @@ class Html2MarkdownSpec
     "render ol-like expression" in {
       toMarkdown("1. foo") === "1\\. foo"
     }
-    "render p tag" in {
+    "render p" in {
       toMarkdown("<p>paragraph</p>") ===
         """
           |
           |paragraph
           |
           |""".stripMargin
+    }
+    "render br" in {
+      toMarkdown("a<br>b") === "a  \nb"
+      toMarkdown("a<br/>b") === "a  \nb"
+      toMarkdown("a<br />b") === "a  \nb"
     }
   }
 }

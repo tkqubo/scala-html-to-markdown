@@ -23,6 +23,7 @@ object MarkdownConverter {
   private def createInstance(rules: ConversionRule*) = new MarkdownConverter(rules)
 
   val DefaultMarkdownConverter = createInstance(
-    'p -> { content: String => s"\n\n$content\n\n" }
+    'p -> { content: String => s"\n\n$content\n\n" },
+    'br -> "  \n"
   )
 }
