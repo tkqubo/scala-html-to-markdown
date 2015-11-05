@@ -18,8 +18,6 @@ class Html2MarkdownSpec
     }
     "render br" in {
       toMarkdown("a<br>b") === "a  \nb"
-      toMarkdown("a<br/>b") === "a  \nb"
-      toMarkdown("a<br />b") === "a  \nb"
     }
     "render h1~h6" in {
       toMarkdown("<h1>Header 1</h1>") === "\n\n# Header 1\n\n"
@@ -28,6 +26,17 @@ class Html2MarkdownSpec
       toMarkdown("<h4>Header 4</h4>") === "\n\n#### Header 4\n\n"
       toMarkdown("<h5>Header 5</h5>") === "\n\n##### Header 5\n\n"
       toMarkdown("<h6>Header 6</h6>") === "\n\n###### Header 6\n\n"
+    }
+    "render hr" in {
+      toMarkdown("<hr>") === "\n\n* * *\n\n"
+    }
+    "render em and i" in {
+      toMarkdown("<em>emphasized</em>") === "_emphasized_"
+      toMarkdown("<i>italic</i>") === "_italic_"
+    }
+    "render strong and b" in {
+      toMarkdown("<strong>strong text</strong>") === "**strong text**"
+      toMarkdown("<b>bold</b>") === "**bold**"
     }
   }
 }
