@@ -53,6 +53,15 @@ object MarkdownConverter {
     } -> { (text: String, e: Element) =>
       val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
       s"""[$text](${e.attr("href")}$titlePart)"""
+    },
+
+    'img -> { (e: Element) =>
+      val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
+      if (e.hasAttr("src")) {
+        s"""![${e.attr("alt")}](${e.attr("src")}$titlePart)"""
+      } else {
+        ""
+      }
     }
   )
 }

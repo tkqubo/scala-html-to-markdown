@@ -41,12 +41,28 @@ class Html2MarkdownSpec
     "render <code> which is not a child of <pre>" in {
       toMarkdown("<code>public static void main</code>") === "`public static void main`"
     }
-    "render <a href=...>" in {
-      toMarkdown("""<a href="https://www.google.com">Google</a>""") === "[Google](https://www.google.com)"
+    "render <a>" in {
+      "<a href=...>" in {
+        toMarkdown("""<a href="https://www.google.com">Google</a>""") === "[Google](https://www.google.com)"
+      }
+      "<a href=... title=...>" in {
+        toMarkdown("""<a href="https://www.google.com" title="Top page">Google</a>""") ===
+          """[Google](https://www.google.com "Top page")"""
+      }
     }
-    "render <a href=... title=...>" in {
-      toMarkdown("""<a href="https://www.google.com" title="Top page">Google</a>""") ===
-        """[Google](https://www.google.com "Top page")"""
+    "render <img>" in {
+      "without src attr" in {
+        toMarkdown("<img alt=3>") === ""
+      }
+      "<img src=...>" in {
+        toMarkdown("""<img src="image.gif">""") === "![](image.gif)"
+      }
+      "<img src=... alt=...>" in {
+        toMarkdown("""<img src="image.gif" alt="sample">""") === "![sample](image.gif)"
+      }
+      "<img src=... title=...>" in {
+        toMarkdown("""<img src="image.gif" title="sample">""") === """![](image.gif "sample")"""
+      }
     }
   }
 }
