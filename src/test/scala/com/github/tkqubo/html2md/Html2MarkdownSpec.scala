@@ -82,7 +82,11 @@ class Html2MarkdownSpec
           |
           |
           |line 4
-          |</blockquote>""".stripMargin) === "\n\n> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4\n\n"
+          |</blockquote>""".stripMargin) ===
+        "\n\n> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4\n\n"
+    }
+    "render <li>" in {
+      toMarkdown("<li>foo</li>") === "*  foo"
     }
     "render <ol>" in {
       toMarkdown(
@@ -102,6 +106,22 @@ class Html2MarkdownSpec
           |  <li>list 3
           |</ul>
           |""".stripMargin) === "\n\n*  list 1\n*  list 2\n*  list 3\n\n\n"
+    }
+    "render <ul> in <ol>" in {
+      toMarkdown(
+        """
+          |<ol>
+          |  <li>
+          |    nested
+          |    <ul>
+          |      <li>list 1</li>
+          |      <li>list 2
+          |      <li>list 3
+          |    </ul>
+          |  </li>
+          |</ol>
+          |""".stripMargin) ===
+        "\n\n1.  nested\n        \n    \n    *  list 1\n    *  list 2\n    *  list 3\n\n\n"
     }
   }
 }

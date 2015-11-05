@@ -88,7 +88,6 @@ object MarkdownConverter {
     Seq('ul, 'ol) -> { (content: String, e: Element) =>
       val children = e
         .children
-        .filter(_.nodeName == "li")
         .map(_.toMarkdown)
         .mkString("\n")
       if (e.parentNode.nodeName == "li") {
