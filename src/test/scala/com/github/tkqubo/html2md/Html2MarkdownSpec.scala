@@ -10,6 +10,17 @@ class Html2MarkdownSpec
     "render plain text" in {
       toMarkdown("foo") === "foo"
     }
+    "render ol-like expression" in {
+      toMarkdown("1. foo") === "1\\. foo"
+    }
+    "render p tag" in {
+      toMarkdown("<p>paragraph</p>") ===
+        """
+          |
+          |paragraph
+          |
+          |""".stripMargin
+    }
   }
 }
 
