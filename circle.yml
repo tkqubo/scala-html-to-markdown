@@ -1,0 +1,17 @@
+machine:
+  java:
+    version: oraclejdk8
+  timezone: UTC
+  environment:
+    SBT_OPTS: -Djava.util.Arrays.useLegacyMergeSort=true
+dependencies:
+  cache_directories:
+    - "~/.sbt"
+  override:
+    - echo "N/A"
+test:
+  override:
+    - cat /dev/null | sbt scalastyle clean coverage test coverageReport
+general:
+  artifacts:
+    - target/*/scoverage-report
