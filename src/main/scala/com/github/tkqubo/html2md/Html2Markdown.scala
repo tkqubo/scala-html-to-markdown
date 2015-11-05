@@ -41,7 +41,7 @@ object Html2Markdown {
       case node: Element =>
         MarkdownConverter.Default.convert(node)
       case node: TextNode =>
-        node.text()
+        node.getWholeText
       case x => x.outerHtml()
     }
     node.attr(markdownAttribute, replacement)

@@ -68,6 +68,14 @@ object MarkdownConverter {
     // code blocks
     { e: Element =>
       e.tagName() == "pre" && e.children().headOption.exists(_.tagName() == "code")
-    } -> { e: Element => s"\n\n    ${e.children().head.text.replaceAll("\n", "\n    ")}\n\n" }
+    } -> { e: Element => s"\n\n    ${e.children().head.text.replaceAll("\n", "\n    ")}\n\n" },
+
+    'blockquote -> { blockquote: String =>
+      val replacement = blockquote
+        .trim
+        .replaceAll("\n{3,}", "\n\n")
+        .replaceAll("(?m)^", "> ")
+      s"\n\n$replacement\n\n"
+    }
   )
 }

@@ -15,7 +15,7 @@ object NodeOps {
         case node: Element =>
           node.html()
         case node: TextNode =>
-          node.text()
+          node.getWholeText
         case x => s"[###ERROR: $x ###]"
       }
 

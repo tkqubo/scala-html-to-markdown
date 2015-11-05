@@ -72,6 +72,18 @@ class Html2MarkdownSpec
           |}
           |</code></pre>""".stripMargin) === "\n\n    class Html2Markdown {\n      val msg = \"yo\"\n    }\n\n"
     }
+    "render <blockquote>" in {
+      toMarkdown(
+        """<blockquote>
+          |line 1
+          |
+          |line 2
+          |<b>line 3</b>
+          |
+          |
+          |line 4
+          |</blockquote>""".stripMargin) === "\n\n> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4\n\n"
+    }
   }
 }
 
