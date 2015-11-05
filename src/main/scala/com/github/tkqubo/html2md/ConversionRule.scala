@@ -8,27 +8,16 @@ class ConversionRule(converter: ((String, Element) => String), matcher: Element 
 }
 
 object ConversionRule {
-  def tag(tagName: String): RuleBuilder =
-    new RuleBuilder({ _.tagName == tagName })
-  def tags(tagNames: String*): RuleBuilder =
-    new RuleBuilder({ element => tagNames.contains(element.tagName) })
-  def matchingTags(matcher: Element => Boolean): RuleBuilder =
-    new RuleBuilder(matcher)
-  def rule(matcher: Element => Boolean, converter: (String, Element) => String): ConversionRule =
-    new ConversionRule(converter, matcher)
+  implicit def toRule(tuple: (String, String)): ConversionRule =
+    new ConversionRule(converter = { (content, element) => tuple._2}, matcher = {_.tagName() == tuple._1})
+  implicit def toRule(tuple: (Symbol, String)): ConversionRule = toRule((tuple._1.name, tuple._2))
 
-  class RuleBuilder private[ConversionRule] (matcher: Element => Boolean) {
-    def render(text: String): ConversionRule =
-      new ConversionRule({ (content: String, element: Element) => text }, matcher)
+  implicit def toRule(tuple: (String, String => String)): ConversionRule =
+    new ConversionRule(converter = { (content, element) => tuple._2(content) }, matcher = {_.tagName() == tuple._1})
+  implicit def toRule(tuple: (Symbol, String => String)): ConversionRule = toRule((tuple._1.name, tuple._2))
 
-    def render(processContent: String => String): ConversionRule =
-      new ConversionRule({ (content: String, element: Element) => processContent(content) }, matcher)
-
-    def render(converter: (String, Element) => String): ConversionRule =
-      new ConversionRule(converter, matcher)
-  }
-
-  implicit def toRule(tagName: Symbol): RuleBuilder = tag(tagName.name)
-  implicit def toRule(tagNames: Seq[Symbol]): RuleBuilder = tags(tagNames.map(_.name):_*)
+  implicit def toRule(tuple: (String, (String, Element) => String)): ConversionRule =
+    new ConversionRule(converter = tuple._2, matcher = {_.tagName() == tuple._1})
+  implicit def toRule(tuple: (Symbol, (String, Element) => String)): ConversionRule = toRule((tuple._1.name, tuple._2))
 }
 

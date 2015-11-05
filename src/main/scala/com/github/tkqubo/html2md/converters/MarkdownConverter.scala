@@ -21,9 +21,8 @@ class MarkdownConverter private (rules: Seq[ConversionRule]) {
 
 object MarkdownConverter {
   private def createInstance(rules: ConversionRule*) = new MarkdownConverter(rules)
-  import ConversionRule._
 
   val DefaultMarkdownConverter = createInstance(
-    'p.render(content => s"\n\n$content\n\n")
+    'p -> { content: String => s"\n\n$content\n\n" }
   )
 }
