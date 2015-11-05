@@ -19,6 +19,9 @@ object ConversionRule {
   private def fromString(converter: StringConverter): Converter = { (content, element) =>
     converter(content)
   }
+  private def fromElement(converter: ElementConverter): Converter = { (content, element) =>
+    converter(element)
+  }
 
   implicit def stringAndString(tuple: (String, String)): ConversionRule =
     ConversionRule(byName(tuple._1), constant(tuple._2))
@@ -29,6 +32,10 @@ object ConversionRule {
     ConversionRule(byName(tuple._1), fromString(tuple._2))
   implicit def symbolAndStringConverter(tuple: (Symbol, StringConverter)): ConversionRule =
     stringAndStringConverter((tuple._1.name, tuple._2))
+  implicit def stringAndElementConverter(tuple: (String, ElementConverter)): ConversionRule =
+    ConversionRule(byName(tuple._1), fromElement(tuple._2))
+  implicit def symbolAndElementConverter(tuple: (Symbol, ElementConverter)): ConversionRule =
+    stringAndElementConverter((tuple._1.name, tuple._2))
 
   implicit def stringAndConverter(tuple: (String, Converter)): ConversionRule =
     ConversionRule(byName(tuple._1), tuple._2)
@@ -44,6 +51,10 @@ object ConversionRule {
     ConversionRule(byNames(tuple._1), fromString(tuple._2))
   implicit def symbolsAndStringConverter(tuple: (Seq[Symbol], StringConverter)): ConversionRule =
     stringsAndStringConverter((tuple._1.map(_.name), tuple._2))
+  implicit def stringsAndElementConverter(tuple: (Seq[String], ElementConverter)): ConversionRule =
+    ConversionRule(byNames(tuple._1), fromElement(tuple._2))
+  implicit def symbolsAndElementConverter(tuple: (Seq[Symbol], ElementConverter)): ConversionRule =
+    stringsAndElementConverter((tuple._1.map(_.name), tuple._2))
 
   implicit def stringsAndConverter(tuple: (Seq[String], Converter)): ConversionRule =
     ConversionRule(byNames(tuple._1), tuple._2)
@@ -54,6 +65,8 @@ object ConversionRule {
     ConversionRule(tuple._1, constant(tuple._2))
   implicit def matcherAndStringConverter(tuple: (Matcher, StringConverter)): ConversionRule =
     ConversionRule(tuple._1, fromString(tuple._2))
+  implicit def matcherAndElementConverter(tuple: (Matcher, ElementConverter)): ConversionRule =
+    ConversionRule(tuple._1, fromElement(tuple._2))
   implicit def matcherAndConverter(tuple: (Matcher, Converter)): ConversionRule =
     ConversionRule(tuple._1, tuple._2)
 
