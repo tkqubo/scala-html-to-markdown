@@ -1,6 +1,6 @@
 organization := "com.github.tkqubo"
 
-name := "scala-html-to-markdown"
+name := "html-to-markdown"
 
 scalaVersion := "2.11.7"
 
