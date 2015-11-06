@@ -3,22 +3,30 @@ package com.github.tkqubo.html2md.converters
 import com.github.tkqubo.html2md.ConversionRule
 import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.nodes._
-import collection.JavaConversions._
+
+import scala.collection.JavaConversions._
 
 class MarkdownConverter private (val rules: Seq[ConversionRule]) {
-  def convert(node: Node): String = {
+  def provideMarkdown(node: Node): Unit =
+    node.markdown(convert(node))
+
+  def convert(node: Node): String =
     node match {
-      case element: Element if element.nonEmptyTag && element.toMarkdown.trim.isEmpty =>
+      case element: Element if isBlank(element) =>
         ""
       case element: Element =>
         rules
           .find(_.shouldConvert(element))
           .map(applyRule(element, _))
-          .getOrElse(element.toMarkdown)
-      case _ =>
-        node.toMarkdown
+          .getOrElse(element.markdown)
+      case textNode: TextNode =>
+        textNode.getWholeText
+      case x =>
+        x.outerHtml()
     }
-  }
+
+  private def isBlank(element: Element): Boolean =
+    element.nonEmptyTag && element.markdown.trim.isEmpty && element.tagName != "a"
 
   //noinspection ScalaStyle
   def ++(that: MarkdownConverter): MarkdownConverter =
@@ -33,7 +41,7 @@ class MarkdownConverter private (val rules: Seq[ConversionRule]) {
     new MarkdownConverter(rule +: this.rules)
 
   private def applyRule(element: Element, rule: ConversionRule): String = {
-    val content = element.toMarkdown
+    val content = element.markdown
     val (leading, trailing) = flankingWhitespace(element)
     val trimmedContent = if (leading.nonEmpty || trailing.nonEmpty) content.trim else content
     val convertedContent = rule.convert(trimmedContent, element)
@@ -55,6 +63,12 @@ class MarkdownConverter private (val rules: Seq[ConversionRule]) {
       (Option(element.nextSibling), "^ ")
     }
 
+    if (element.tagName == "h5" && element.html.contains("line")) {
+      println("isFlankedByWhitespace([element, left])")
+      println(element.outerHtml())
+      println(sibling)
+      println(pattern)
+    }
     sibling match {
       case Some(textNode: TextNode) =>
         textNode.text.matches(pattern)
@@ -96,7 +110,7 @@ object MarkdownConverter {
 
     // <a> with href attr
     { e: Element =>
-      e.tagName() == "a" && e.hasAttr("href")
+      e.tagName == "a" && e.hasAttr("href")
     } -> { (text: String, e: Element) =>
       val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
       s"""[$text](${e.attr("href")}$titlePart)"""
@@ -128,7 +142,7 @@ object MarkdownConverter {
     'li -> { (content: String, e: Element) =>
       val replacement = content
 //        .split("\n").filter(_.nonEmpty).mkString("\n")
-        .replaceAll("^\\s+", "")
+        .replaceAll("(?s)^\\s+|[\t ]+$", "") // trailing ws removal was added
         .replaceAll("(?m)\n", "\n    ")
       val prefix = if (e.parentNode().nodeName() == "ol") {
         val index = e.parent.children.indexOf(e) + 1
@@ -143,7 +157,7 @@ object MarkdownConverter {
       val children = e
         .children
         .filter(_.tagName == "li")
-        .map(_.toMarkdown)
+        .map(_.markdown)
         .mkString("\n")
       if (e.parentNode.nodeName == "li") {
         s"\n$children"

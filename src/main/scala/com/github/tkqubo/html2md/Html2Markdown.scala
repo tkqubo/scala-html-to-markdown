@@ -4,8 +4,8 @@ import com.github.tkqubo.html2md.converters.MarkdownConverter
 import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.Jsoup
 import org.jsoup.nodes._
-import collection.JavaConversions._
 
+import scala.collection.JavaConversions._
 import scala.collection.mutable.ListBuffer
 
 class Html2Markdown(val converter: MarkdownConverter) {
@@ -17,10 +17,10 @@ class Html2Markdown(val converter: MarkdownConverter) {
 //    document.outputSettings.prettyPrint(false)
     val body: Element = document.body
     val elements: Seq[Node] = flatten(body).reverse
-    elements.foreach(provideMarkdownText)
+    elements.foreach(converter.provideMarkdown)
 
     body
-      .toMarkdown
+      .markdown
       .replaceAll("(?s)^[\t\r\n]+|[\t\r\n\\s]+$", "")
       .replaceAll("(?m)\n\\s+\n", "\n\n")
       .replaceAll("(?m)\n{3,}", "\n\n")
@@ -37,23 +37,6 @@ class Html2Markdown(val converter: MarkdownConverter) {
       inQueue ++= e.childNodes()
     }
     outQueue.tail
-  }
-
-  private def provideMarkdownText(node: Node): Unit = {
-    val replacement = node match {
-      case _ if isBlankNode(node) =>
-        ""
-      case node: Element =>
-        converter.convert(node)
-      case textNode: TextNode =>
-        textNode.getWholeText
-      case x => x.outerHtml()
-    }
-    node.attr(markdownAttribute, replacement)
-  }
-
-  private def isBlankNode(node: Node): Boolean = {
-    node.nonEmptyTag && node.toMarkdown.trim.isEmpty
   }
 }
 

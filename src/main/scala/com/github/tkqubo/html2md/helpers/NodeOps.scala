@@ -8,13 +8,16 @@ object NodeOps {
   val markdownAttribute = "data-converted-markdown"
 
   implicit class NodeOps(node: Node) {
-    def toMarkdown: String =
+    def markdown(text: String): Unit =
+      node.attr(markdownAttribute, text)
+
+    def markdown: String =
       node match {
         case node: Element if node.hasAttr(markdownAttribute) =>
           node.attr(markdownAttribute)
         case node: Element =>
           node.childNodes
-            .map(_.toMarkdown)
+            .map(_.markdown)
             .reduceLeftOption(_ + _)
             .getOrElse("")
         case node: TextNode =>
