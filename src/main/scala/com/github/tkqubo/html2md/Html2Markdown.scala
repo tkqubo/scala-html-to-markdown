@@ -11,17 +11,19 @@ import scala.collection.mutable.ListBuffer
 class Html2Markdown(val converter: MarkdownConverter) {
   def toMarkdown(html: String): String = {
     // Escape potential ol triggers
-    val mdEscapedHtml = """(\d+)\. """.r.replaceAllIn(html, """\1\\. """)
+    val mdEscapedHtml = """(\d+)\. """.r.replaceAllIn(html, """$1\\. """)
 
-    val body: Element = Jsoup.parse(mdEscapedHtml).body()
+    val document: Document = Jsoup.parse(mdEscapedHtml)
+//    document.outputSettings.prettyPrint(false)
+    val body: Element = document.body
     val elements: Seq[Node] = flatten(body).reverse
     elements.foreach(provideMarkdownText)
 
     body
       .toMarkdown
-      .replaceAll("^[\t\r\n]+|[\t\r\n]+$", "")
-      .replaceAll("\n\\s+\n", "\n\n")
-      .replaceAll("\n{3,}", "\n\n")
+      .replaceAll("(?s)^[\t\r\n]+|[\t\r\n\\s]+$", "")
+      .replaceAll("(?m)\n\\s+\n", "\n\n")
+      .replaceAll("(?m)\n{3,}", "\n\n")
   }
 
   private def flatten(node: Node): Seq[Node] = {
@@ -43,8 +45,8 @@ class Html2Markdown(val converter: MarkdownConverter) {
         ""
       case node: Element =>
         converter.convert(node)
-      case node: TextNode =>
-        node.getWholeText
+      case textNode: TextNode =>
+        textNode.getWholeText
       case x => x.outerHtml()
     }
     node.attr(markdownAttribute, replacement)

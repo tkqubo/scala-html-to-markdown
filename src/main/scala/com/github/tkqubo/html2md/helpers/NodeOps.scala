@@ -13,7 +13,10 @@ object NodeOps {
         case node: Element if node.hasAttr(markdownAttribute) =>
           node.attr(markdownAttribute)
         case node: Element =>
-          node.childNodes.map(_.toMarkdown).reduceLeftOption(_ + _).getOrElse("")
+          node.childNodes
+            .map(_.toMarkdown)
+            .reduceLeftOption(_ + _)
+            .getOrElse("")
         case node: TextNode =>
           node.getWholeText
         case x => s"[###ERROR: $x ###]"

@@ -8,12 +8,15 @@ import collection.JavaConversions._
 class MarkdownConverter private (val rules: Seq[ConversionRule]) {
   def convert(node: Node): String = {
     node match {
+      case element: Element if element.nonEmptyTag && element.toMarkdown.trim.isEmpty =>
+        ""
       case element: Element =>
         rules
           .find(_.shouldConvert(element))
-          .map(rule => rule.convert(node.toMarkdown, element))
-          .getOrElse(node.toMarkdown)
-      case _ => node.toMarkdown
+          .map(applyRule(element, _))
+          .getOrElse(element.toMarkdown)
+      case _ =>
+        node.toMarkdown
     }
   }
 
@@ -28,6 +31,39 @@ class MarkdownConverter private (val rules: Seq[ConversionRule]) {
   //noinspection ScalaStyle
   def +:(rule: ConversionRule): MarkdownConverter =
     new MarkdownConverter(rule +: this.rules)
+
+  private def applyRule(element: Element, rule: ConversionRule): String = {
+    val content = element.toMarkdown
+    val (leading, trailing) = flankingWhitespace(element)
+    val trimmedContent = if (leading.nonEmpty || trailing.nonEmpty) content.trim else content
+    val convertedContent = rule.convert(trimmedContent, element)
+    s"$leading$convertedContent$trailing"
+  }
+
+  private def flankingWhitespace(element: Element): (String, String) = {
+    val hasLeading = element.html.matches("(?s)^[ \r\n\t].*")
+    val hasTrailing = element.html.matches("(?s).*[ \r\n\t]$")
+    val leading = if (hasLeading && !isFlankedByWhitespace(element, left = true)) " " else ""
+    val trailing = if (hasTrailing && !isFlankedByWhitespace(element, left = false)) " " else ""
+    (leading, trailing)
+  }
+
+  private def isFlankedByWhitespace(element: Element, left: Boolean) = {
+    val (sibling: Option[Node], pattern: String) = if (left) {
+      (Option(element.previousSibling), " $")
+    } else {
+      (Option(element.nextSibling), "^ ")
+    }
+
+    sibling match {
+      case Some(textNode: TextNode) =>
+        textNode.text.matches(pattern)
+      case Some(e: Element) if !e.isBlock =>
+        e.text.matches(pattern)
+      case _ =>
+        false
+    }
+  }
 }
 
 object MarkdownConverter {
@@ -80,28 +116,37 @@ object MarkdownConverter {
       e.tagName() == "pre" && e.children().headOption.exists(_.tagName() == "code")
     } -> { e: Element => s"\n\n    ${e.children().head.text.replaceAll("\n", "\n    ")}\n\n" },
 
-    'blockquote -> { blockquote: String =>
-      val replacement = blockquote
+    'blockquote -> { content: String =>
+      val replacement = content
         .trim
-        .replaceAll("\n{3,}", "\n\n")
+        .replaceAll("(?m)^\\s+$", "")
+        .replaceAll("(?m)\n{3,}", "\n\n")
         .replaceAll("(?m)^", "> ")
       s"\n\n$replacement\n\n"
     },
 
     'li -> { (content: String, e: Element) =>
-      val replacement = content.trim.replaceAll("\n", "\n    ")
-      val index = e.parent.children.indexOf(e) + 1
-      val prefix = if (e.parentNode().nodeName() == "ol") s"$index." else "*"
-      s"$prefix  $replacement"
+      val replacement = content
+//        .split("\n").filter(_.nonEmpty).mkString("\n")
+        .replaceAll("^\\s+", "")
+        .replaceAll("(?m)\n", "\n    ")
+      val prefix = if (e.parentNode().nodeName() == "ol") {
+        val index = e.parent.children.indexOf(e) + 1
+        s"$index.  "
+      } else {
+        "*   "
+      }
+      prefix + replacement
     },
 
     Seq('ul, 'ol) -> { (content: String, e: Element) =>
       val children = e
         .children
+        .filter(_.tagName == "li")
         .map(_.toMarkdown)
         .mkString("\n")
       if (e.parentNode.nodeName == "li") {
-        s"\n\n$children"
+        s"\n$children"
       } else {
         s"\n\n$children\n\n"
       }
