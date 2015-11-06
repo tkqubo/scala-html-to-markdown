@@ -4,6 +4,10 @@ machine:
   timezone: UTC
   environment:
     SBT_OPTS: -Djava.util.Arrays.useLegacyMergeSort=true
+general:
+  artifacts:
+    - target/*/scoverage-report
+    - target/*/api
 dependencies:
   cache_directories:
     - "~/.sbt"
@@ -11,9 +15,12 @@ dependencies:
     - echo "N/A"
 test:
   override:
-    - cat /dev/null | sbt scalastyle clean coverage test coverageReport
+    - cat /dev/null | sbt scalastyle clean coverage test
   post:
     - sbt coveralls
-general:
-  artifacts:
-    - target/*/scoverage-report
+deployment:
+  master:
+    branch: master
+    commands:
+      - cat /dev/null | sbt doc
+      - cat /dev/null | sbt coverageReport
