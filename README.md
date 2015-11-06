@@ -6,8 +6,8 @@
 
 An HTML to Markdown converter written in Scala, inspired by https://github.com/domchristie/to-markdown
 
-[maven-image]:      https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/scala-html-to-markdown_2.11/badge.svg
-[maven-link]:       https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/scala-html-to-markdown_2.11
+[maven-image]:      https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/html-to-markdown_2.11/badge.svg
+[maven-link]:       https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/html-to-markdown_2.11
 [circle-ci-image]:  https://img.shields.io/circleci/project/tkqubo/scala-html-to-markdown.svg
 [circle-ci-link]:   https://circleci.com/gh/tkqubo/scala-html-to-markdown
 [coveralls-image]:  https://coveralls.io/repos/tkqubo/scala-html-to-markdown/badge.svg?branch=master&service=github
