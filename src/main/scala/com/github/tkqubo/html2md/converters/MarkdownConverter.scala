@@ -8,7 +8,7 @@ import scala.collection.JavaConversions._
 
 class MarkdownConverter private (val rules: Seq[ConversionRule]) {
   def provideMarkdown(node: Node): Unit =
-    node.markdown(convert(node))
+    node.markdown = convert(node)
 
   def convert(node: Node): String =
     node match {

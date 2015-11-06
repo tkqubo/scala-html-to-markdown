@@ -8,7 +8,8 @@ object NodeOps {
   val markdownAttribute = "data-converted-markdown"
 
   implicit class NodeOps(node: Node) {
-    def markdown(text: String): Unit =
+    //noinspection ScalaStyle
+    def markdown_=(text: String): Unit =
       node.attr(markdownAttribute, text)
 
     def markdown: String =
