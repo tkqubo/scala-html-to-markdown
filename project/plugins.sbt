@@ -12,3 +12,5 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.0")
 // https://github.com/scoverage/sbt-coveralls/issues/62
 lazy val root = project.in(file(".")).dependsOn(githubRepo)
 lazy val githubRepo = uri("git://github.com/scoverage/sbt-coveralls.git")
+
+addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.0")
