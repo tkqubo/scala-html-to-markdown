@@ -14,21 +14,21 @@ class Html2MarkdownSpec
       toMarkdown("1. foo") === "1\\. foo"
     }
     "render <p>" in {
-      toMarkdown("<p>paragraph</p>") === "\n\nparagraph\n\n"
+      toMarkdown("<p>paragraph</p>") === "paragraph"
     }
     "render <br>" in {
       toMarkdown("a<br>b") === "a  \nb"
     }
     "render <h1>~<h6>" in {
-      toMarkdown("<h1>Header 1</h1>") === "\n\n# Header 1\n\n"
-      toMarkdown("<h2>Header 2</h2>") === "\n\n## Header 2\n\n"
-      toMarkdown("<h3>Header 3</h3>") === "\n\n### Header 3\n\n"
-      toMarkdown("<h4>Header 4</h4>") === "\n\n#### Header 4\n\n"
-      toMarkdown("<h5>Header 5</h5>") === "\n\n##### Header 5\n\n"
-      toMarkdown("<h6>Header 6</h6>") === "\n\n###### Header 6\n\n"
+      toMarkdown("<h1>Header 1</h1>") === "# Header 1"
+      toMarkdown("<h2>Header 2</h2>") === "## Header 2"
+      toMarkdown("<h3>Header 3</h3>") === "### Header 3"
+      toMarkdown("<h4>Header 4</h4>") === "#### Header 4"
+      toMarkdown("<h5>Header 5</h5>") === "##### Header 5"
+      toMarkdown("<h6>Header 6</h6>") === "###### Header 6"
     }
     "render <hr>" in {
-      toMarkdown("<hr>") === "\n\n* * *\n\n"
+      toMarkdown("<hr>") === "* * *"
     }
     "render <em> and <i>" in {
       toMarkdown("<em>emphasized</em>") === "_emphasized_"
@@ -70,7 +70,7 @@ class Html2MarkdownSpec
           |class Html2Markdown {
           |  val msg = "yo"
           |}
-          |</code></pre>""".stripMargin) === "\n\n    class Html2Markdown {\n      val msg = \"yo\"\n    }\n\n"
+          |</code></pre>""".stripMargin) === "    class Html2Markdown {\n      val msg = \"yo\"\n    }"
     }
     "render <blockquote>" in {
       toMarkdown(
@@ -83,7 +83,7 @@ class Html2MarkdownSpec
           |
           |line 4
           |</blockquote>""".stripMargin) ===
-        "\n\n> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4\n\n"
+        "> line 1\n> \n> line 2\n> **line 3**\n> \n> line 4"
     }
     "render <li>" in {
       toMarkdown("<li>foo</li>") === "*  foo"
@@ -95,7 +95,7 @@ class Html2MarkdownSpec
           |  <li>list 1</li>
           |  <li>list 2
           |</ol>
-          |""".stripMargin) === "\n\n1.  list 1\n2.  list 2\n\n\n"
+          |""".stripMargin) === "1.  list 1\n2.  list 2"
     }
     "render <ul>" in {
       toMarkdown(
@@ -105,7 +105,7 @@ class Html2MarkdownSpec
           |  <li>list 2
           |  <li>list 3
           |</ul>
-          |""".stripMargin) === "\n\n*  list 1\n*  list 2\n*  list 3\n\n\n"
+          |""".stripMargin) === "*  list 1\n*  list 2\n*  list 3"
     }
     "render <ul> in <ol>" in {
       toMarkdown(
@@ -121,11 +121,11 @@ class Html2MarkdownSpec
           |  </li>
           |</ol>
           |""".stripMargin) ===
-        "\n\n1.  nested\n        \n    \n    *  list 1\n    *  list 2\n    *  list 3\n\n\n"
+        "1.  nested\n\n    *  list 1\n    *  list 2\n    *  list 3"
     }
     "render <div>" in {
       toMarkdown("""<div id="d1" class="division">content</div>""") ===
-        "\n\n<div id=\"d1\" class=\"division\">\n content\n</div>\n\n"
+        "<div id=\"d1\" class=\"division\">\n content\n</div>"
     }
     "render <span>" in {
       toMarkdown("""<span id="i1" class="main">content</span>""") ===

@@ -17,7 +17,11 @@ class Html2Markdown(val converter: MarkdownConverter) {
     val elements: Seq[Node] = flatten(body).reverse
     elements.foreach(provideMarkdownText)
 
-    body.toMarkdown
+    body
+      .toMarkdown
+      .replaceAll("^[\t\r\n]+|[\t\r\n]+$", "")
+      .replaceAll("\n\\s+\n", "\n\n")
+      .replaceAll("\n{3,}", "\n\n")
   }
 
   private def flatten(node: Node): Seq[Node] = {
