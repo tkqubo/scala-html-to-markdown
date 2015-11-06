@@ -21,6 +21,7 @@ javaOptions in Test ++= Seq(
 
 initialCommands := "import com.github.tkqubo.html2md._"
 
+// sbt publish
 publishArtifact in Test := false
 publishMavenStyle := true
 pomIncludeRepository := { _ => false }
@@ -53,3 +54,7 @@ publishTo <<= version { (v: String) =>
   }
 }
 useGpg := true
+
+// sbt-release
+releaseVersionBump := sbtrelease.Version.Bump.Bugfix
+releasePublishArtifactsAction := PgpKeys.publishSigned.value
