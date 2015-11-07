@@ -8,7 +8,15 @@ import org.jsoup.nodes._
 import scala.collection.JavaConversions._
 import scala.collection.mutable.ListBuffer
 
+/**
+  * Converts html text into markdown text
+  * @param converter
+  */
 class Html2Markdown(val converter: MarkdownConverter) {
+  /**
+    * Returns markdown text converted from the given [html] string
+    * @param html
+    */
   def toMarkdown(html: String): String = {
     // Escape potential ol triggers
     val mdEscapedHtml = """(\d+)\. """.r.replaceAllIn(html, """$1\\. """)
@@ -40,7 +48,14 @@ class Html2Markdown(val converter: MarkdownConverter) {
   }
 }
 
+/** Companion object for [[Html2Markdown]] */
 object Html2Markdown {
+  /**
+    * Returns markdown text converted from the given [html] string.
+    * By specifying the [converter] object, you can customize conversion strategy
+    * @param html
+    * @param converter
+    */
   def toMarkdown(html: String, converter: MarkdownConverter = MarkdownConverter.Default): String =
     new Html2Markdown(converter).toMarkdown(html)
 }

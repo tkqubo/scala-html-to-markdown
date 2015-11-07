@@ -8,7 +8,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.7.0")
 
 //addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.0.0")
 
-//FIXME: Refer master branch due to the bug below:
+//TODO: Refer master branch due to the bug below:
 // https://github.com/scoverage/sbt-coveralls/issues/62
 lazy val root = project.in(file(".")).dependsOn(githubRepo)
 lazy val githubRepo = uri("git://github.com/scoverage/sbt-coveralls.git")

@@ -2,14 +2,33 @@ package com.github.tkqubo.html2md
 
 import org.jsoup.nodes.Element
 
+/**
+  * Defines the html tag conversion rule
+  * @param matcher Returns whether the [[Element]] instance should be converted by this instance
+  * @param converter Converts the [[Element]] instance into markdown text
+  */
 case class ConversionRule(
   matcher: Matcher,
   converter: Converter
 ) {
+  /**
+    * Returns whether the [[Element]] instance should be converted by this instance
+    * @param element
+    * @return
+    */
   def shouldConvert(element: Element): Boolean = matcher(element)
+  /**
+    * Converts the [[Element]] instance into markdown text
+    * @param content
+    * @param element
+    * @return
+    */
   def convert(content: String, element: Element): String = converter(content, element)
 }
 
+/**
+  * Defines implicit conversions for [[ConversionRule]]
+  */
 object ConversionRule {
   private def byName(tagName: String): Element => Boolean = {_.tagName() == tagName}
   private def byNames(tagNames: Seq[String]): Element => Boolean = {element => tagNames.contains(element.tagName()) }
