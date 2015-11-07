@@ -58,3 +58,6 @@ useGpg := true
 // sbt-release
 releaseVersionBump := sbtrelease.Version.Bump.Bugfix
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
+
+// disable using the Scala version in output paths and artifacts
+crossPaths := false
