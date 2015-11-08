@@ -1,11 +1,23 @@
 package com.github.tkqubo.html2md.converters
 
-import org.jsoup.nodes.Element
+import org.jsoup.nodes.{Node, Element}
 import scala.collection.JavaConversions._
 
 class GitHubFlavoredMarkdownConverter extends {
-  private val cell: (String, Element) => String =
-    GitHubFlavoredMarkdownConverter.TableHelper.cell
+
+  private val cell: (String, Element) => String = { (content, e) =>
+    val index = e.parent.children.indexOf(e)
+    val prefix = if (index == 0) "|" else ""
+    s"$prefix $content |"
+  }
+
+  private val highlightPattern = "^.*highlight highlight-(\\S+).*$"
+  private val highlightRegex = highlightPattern.r
+
+  private val hasHighlight: Node => Boolean = { node =>
+    Option(node.attr("className")).exists(_.matches(highlightPattern))
+  }
+
 } with MarkdownConverter(Seq(
   'br -> "\n",
 
@@ -37,7 +49,24 @@ class GitHubFlavoredMarkdownConverter extends {
 
   'table -> { content: String => s"\n\n$content\n\n" },
 
-  Seq('thead, 'tbody, 'tfoot) -> { content: String => content }
+  Seq('thead, 'tbody, 'tfoot) -> { content: String => content },
+
+  // fenced code blocks
+  { e: Element => e.tagName == "pre" && e.children.headOption.exists(_.tagName == "code") } ->
+    { e: Element => s"\n\n```\n${e.children.head.text}\n```\n\n" },
+
+  // syntax-highlighted code blocks
+  { e: Element => e.tagName == "pre" && e.parent.tagName == "div" && hasHighlight(e.parent) } ->
+    { e: Element =>
+      val language = e.parent.attr("className") match {
+        case highlightRegex(language) => language
+        case _ => null
+      }
+      s"\n\n```$language\n${e.text}\n```\n\n"
+    },
+
+  { e: Element => e.tagName == "div" && hasHighlight(e) } ->
+    { content: String => s"\n\n$content\n\n" }
 ))
 
 object GitHubFlavoredMarkdownConverter {
@@ -47,6 +76,11 @@ object GitHubFlavoredMarkdownConverter {
       val prefix = if (index == 0) "|" else ""
       s"$prefix $content |"
     }
+  }
+
+  private object Code {
+    def hasHighlight(node: Node): Boolean =
+      Option(node.attr("className")).exists(_.matches("^.*highlight highlight-(\\S+).*$"))
   }
 }
 
