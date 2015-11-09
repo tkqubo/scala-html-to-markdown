@@ -6,9 +6,9 @@ import org.jsoup.nodes._
 
 /**
   * Performs html tag conversion according to the given [rules]
-  * @param rules
   */
-class MarkdownConverter(val rules: Seq[ConversionRule]) {
+trait MarkdownConverter {
+  val rules: Seq[ConversionRule]
   /**
     * Provide the [[Node]] instance with its markdown representation.
     *
@@ -48,7 +48,7 @@ class MarkdownConverter(val rules: Seq[ConversionRule]) {
     */
   //noinspection ScalaStyle
   def ++(that: MarkdownConverter): MarkdownConverter =
-    new MarkdownConverter(this.rules ++ that.rules)
+    MarkdownConverter(this.rules ++ that.rules)
 
   /**
     * Returns a new [[MarkdownConverter]] instance whose conversion rules is the concatenation of this instance and the given [[ConversionRule]]
@@ -57,7 +57,7 @@ class MarkdownConverter(val rules: Seq[ConversionRule]) {
     */
   //noinspection ScalaStyle
   def +(rule: ConversionRule): MarkdownConverter =
-    new MarkdownConverter(this.rules :+ rule)
+    MarkdownConverter(this.rules :+ rule)
 
   /**
     * Returns a new [[MarkdownConverter]] instance whose conversion rules is the concatenation of the given [[ConversionRule]] and this instance
@@ -66,7 +66,7 @@ class MarkdownConverter(val rules: Seq[ConversionRule]) {
     */
   //noinspection ScalaStyle
   def +:(rule: ConversionRule): MarkdownConverter =
-    new MarkdownConverter(rule +: this.rules)
+    MarkdownConverter(rule +: this.rules)
 
   private def applyRule(element: Element, rule: ConversionRule): String = {
     val content = element.markdown
@@ -106,5 +106,10 @@ class MarkdownConverter(val rules: Seq[ConversionRule]) {
   * Defines available list of [[MarkdownConverter]]s
   */
 object MarkdownConverter {
-  val Default = new DefaultMarkdownConverter
+  def apply(_rules: Seq[ConversionRule]): MarkdownConverter = new MarkdownConverter {
+    override val rules: Seq[ConversionRule] = _rules
+  }
+
+  val Default: MarkdownConverter = new DefaultMarkdownConverter
+  var Gfm = new GitHubFlavoredMarkdownConverter ++ Default
 }
