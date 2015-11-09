@@ -10,8 +10,8 @@ import scala.collection.JavaConversions._
   * see. [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)
   */
 class GitHubFlavoredMarkdownConverter
-  extends MarkdownConverter {
-  val rules: Seq[ConversionRule] = Seq(
+  extends DefaultMarkdownConverter {
+  override val rules: Seq[ConversionRule] = Seq[ConversionRule](
     'br -> "\n",
 
     Seq('del, 's, 'strike) -> { content: String => s"~~$content~~" },
@@ -69,7 +69,7 @@ class GitHubFlavoredMarkdownConverter
     },
 
     { e: Element => e.tagName == "div" && hasHighlight(e) } -> { content: String => s"\n\n$content\n\n" }
-  )
+  ) ++ super.rules
 
   private val highlightPattern = "^.*highlight highlight-(\\S+).*$"
   private val highlightRegex = highlightPattern.r

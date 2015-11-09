@@ -111,5 +111,5 @@ object MarkdownConverter {
   }
 
   val Default: MarkdownConverter = new DefaultMarkdownConverter
-  var Gfm = new GitHubFlavoredMarkdownConverter ++ Default
+  var Gfm: MarkdownConverter = new GitHubFlavoredMarkdownConverter
 }
