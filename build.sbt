@@ -56,7 +56,7 @@ publishTo <<= version { (v: String) =>
 useGpg := true
 
 // sbt-release
-releaseVersionBump := sbtrelease.Version.Bump.Bugfix
+releaseVersionBump := sbtrelease.Version.Bump.Minor
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 // disable using the Scala version in output paths and artifacts
