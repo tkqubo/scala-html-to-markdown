@@ -47,7 +47,7 @@ trait MarkdownConverter {
     * @return
     */
   //noinspection ScalaStyle
-  def ++[A <: MarkdownConverter](that: A): MarkdownConverter =
+  def ++(that: MarkdownConverter): MarkdownConverter =
     MarkdownConverter(this.rules ++ that.rules)
 
   /**
