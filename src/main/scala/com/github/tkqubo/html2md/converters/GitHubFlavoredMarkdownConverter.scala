@@ -7,10 +7,6 @@ import scala.collection.JavaConversions._
 
 class GitHubFlavoredMarkdownConverter
   extends MarkdownConverter {
-
-  private val highlightPattern = "^.*highlight highlight-(\\S+).*$"
-  private val highlightRegex = highlightPattern.r
-
   val rules: Seq[ConversionRule] = Seq(
     'br -> "\n",
 
@@ -23,6 +19,10 @@ class GitHubFlavoredMarkdownConverter
     Seq('th, 'td) -> cell _,
 
     'tr -> { (content: String, e: Element) =>
+      val trimmedContent = content
+        .split("\n")
+        .map(_.trim + " ")
+        .mkString("").trim
       if (e.parent.tagName == "thead") {
         val borderCells = e.children.map { head =>
           val align = Option(head.attr("align"))
@@ -34,29 +34,41 @@ class GitHubFlavoredMarkdownConverter
           }
           cell(marker, head)
         }.mkString("")
-        s"\n$content\n$borderCells"
+        s"$trimmedContent\n${borderCells.trim}"
       } else {
-        s"\n$content"
+        trimmedContent
       }
     },
 
-    'table -> { content: String => s"\n\n$content\n\n" },
+    'table -> { content: String =>
+      val trimmedContent = content
+        .split("\n")
+        .map(_.replaceAll("^[ \r\n\t]+|[ \r\n\t]+$", ""))
+        .filter(_.nonEmpty)
+        .mkString("\n")
+      s"\n\n$trimmedContent\n\n"
+    },
 
-    Seq('thead, 'tbody, 'tfoot) -> { content: String => content },
+    Seq('thead, 'tbody, 'tfoot) -> { content: String => content.trim },
 
     // fenced code blocks
     { e: Element => e.tagName == "pre" && e.children.headOption.exists(_.tagName == "code") } ->
-      { e: Element => s"\n\n```\n${e.children.head.text}\n```\n\n" },
+      { e: Element => s"\n\n```\n${e.children.head.text}```\n\n" },
 
     // syntax-highlighted code blocks
     { e: Element => e.tagName == "pre" && e.parent.tagName == "div" && hasHighlight(e.parent) } -> { e: Element =>
-      val language = e.parent.attr("className") match {
+      val language = e.parent.attr("class") match {
         case highlightRegex(found) => found
         case _ => ""
       }
-      s"\n\n```$language\n${e.text}\n```\n\n"
-    }, { e: Element => e.tagName == "div" && hasHighlight(e) } -> { content: String => s"\n\n$content\n\n" }
+      s"\n\n```$language\n${e.text}```\n\n"
+    },
+
+    { e: Element => e.tagName == "div" && hasHighlight(e) } -> { content: String => s"\n\n$content\n\n" }
   )
+
+  private val highlightPattern = "^.*highlight highlight-(\\S+).*$"
+  private val highlightRegex = highlightPattern.r
 
   private def cell(content: String, e: Element): String = {
     val index = e.parent.children.indexOf(e)
@@ -65,5 +77,5 @@ class GitHubFlavoredMarkdownConverter
   }
 
   private def hasHighlight(node: Node): Boolean =
-    Option(node.attr("className")).exists(_.matches(highlightPattern))
+    Option(node.attr("class")).exists(_.matches(highlightPattern))
 }

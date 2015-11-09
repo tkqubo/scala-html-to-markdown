@@ -106,8 +106,8 @@ trait MarkdownConverter {
   * Defines available list of [[MarkdownConverter]]s
   */
 object MarkdownConverter {
-  def apply(rules: Seq[ConversionRule]): MarkdownConverter = new MarkdownConverter {
-    override val rules: Seq[ConversionRule] = rules
+  def apply(_rules: Seq[ConversionRule]): MarkdownConverter = new MarkdownConverter {
+    override val rules: Seq[ConversionRule] = _rules
   }
 
   val Default: MarkdownConverter = new DefaultMarkdownConverter
