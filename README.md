@@ -19,9 +19,9 @@ libraryDependencies += "com.github.tkqubo" % "html-to-markdown" % "0.3.0"
 ```scala
 import com.github.tkqubo.html2md.Html2Markdown
 
-val html = "<h1>introduction</h1><p>this is an <b>converter</b>.</p>"
+val html = "<h1>introduction</h1><p>this is a <b>converter</b>.</p>"
 val markdown = Html2Markdown.toMarkdown(html)
-// markdown == "# introduction\n\nthis is an **converter**."
+// markdown == "# introduction\n\nthis is a **converter**."
 ```
 
 ## API
