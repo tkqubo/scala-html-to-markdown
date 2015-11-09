@@ -8,7 +8,7 @@ import org.jsoup.nodes._
   * Performs html tag conversion according to the given [rules]
   */
 trait MarkdownConverter {
-  val rules: Seq[ConversionRule]
+  def rules: Seq[ConversionRule]
   /**
     * Provide the `org.jsoup.nodes.Node` instance with its markdown representation.
     *

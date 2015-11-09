@@ -6,6 +6,75 @@
 
 An HTML to Markdown converter written in Scala, inspired by https://github.com/domchristie/to-markdown
 
+## Installation
+
+Assuming you are using Scala 2.11.x, add the following line to your build file:
+
+```scala
+libraryDependencies += "com.github.tkqubo" % "html-to-markdown" % "0.3.0"
+```
+
+## Quick Start
+
+```scala
+import com.github.tkqubo.html2md.Html2Markdown
+
+val html = "<h1>introduction</h1><p>this is an <b>converter</b>.</p>"
+val markdown = Html2Markdown.toMarkdown(html)
+// markdown == "# introduction\n\nthis is an **converter**."
+```
+
+## API
+
+**TBD**
+
+### Writing your own rule
+
+You can write your own HTML-to-markdown conversion rules.  They can be represented as a simple tuple
+
+**TBD**
+
+```scala
+// <br>
+('br -> "\n")
+
+// <p>
+('p -> { content: String => s"\n\n$content\n\n" })
+
+// <em> or <i>
+(Seq('em, 'i) -> { content: String => s"_${content}_" })
+
+// <a> with href attr
+(
+  { e: Element => e.tagName == "a" && e.hasAttr("href") } ->
+  { (text: String, e: Element) =>
+    val titlePart = if (e.hasAttr("title")) s""" "${e.attr("title")}"""" else ""
+    s"""[$text](${e.attr("href")}$titlePart)"""
+  }
+)
+```
+
+**TBD**
+
+## Development
+
+### Test
+
+```bash
+sbt test
+```
+
+or, with coverage
+
+```bash
+sbt clean coverage test
+```
+
+## Copyright
+
+Copyright (c) 2015 tkqubo. See [LICENSE](LICENSE) for details.
+
+
 [maven-image]:      https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/html-to-markdown_2.11/badge.svg
 [maven-link]:       https://maven-badges.herokuapp.com/maven-central/com.github.tkqubo/html-to-markdown_2.11
 [circle-ci-image]:  https://img.shields.io/circleci/project/tkqubo/scala-html-to-markdown.svg
