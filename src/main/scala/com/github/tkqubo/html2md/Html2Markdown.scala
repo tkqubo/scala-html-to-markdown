@@ -14,7 +14,7 @@ import scala.collection.mutable.ListBuffer
   */
 class Html2Markdown(val converter: MarkdownConverter) {
   /**
-    * Returns markdown text converted from the given [html] string
+    * Returns markdown text converted from the given `html` string
     * @param html
     */
   def toMarkdown(html: String): String = {

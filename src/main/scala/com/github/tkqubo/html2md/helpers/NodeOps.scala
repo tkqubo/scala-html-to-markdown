@@ -8,7 +8,7 @@ object NodeOps {
   /** Node's attribute name that hold a markdown text */
   val markdownAttribute = "data-converted-markdown"
 
-  /** Provides extended method for [[Node]] */
+  /** Provides extended method for `org.jsoup.nodes.Node` */
   implicit class NodeOps(node: Node) {
     /**
       * Sets markdown text for this node
@@ -33,8 +33,8 @@ object NodeOps {
         case x => s"[###ERROR: $x ###]"
       }
 
-    /** Returns this node casted as [[Element]], wrapped in [[Option]].
-      * If this node is not an instance of [[Element]], it returns [[None]]
+    /** Returns this node casted as `org.jsoup.nodes.Element`, wrapped in `Option`.
+      * If this node is not an instance of `org.jsoup.nodes.Element`, it returns `None`
       */
     def asElement: Option[Element] = node match {
       case element: Element => Some(element)

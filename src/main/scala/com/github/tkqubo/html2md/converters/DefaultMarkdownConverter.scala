@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element
 import scala.collection.JavaConversions._
 
 /**
-  * Defines default markdown converter
+  * Converts html text into markdown
   */
 class DefaultMarkdownConverter extends MarkdownConverter {
   val rules: Seq[ConversionRule] = Seq(

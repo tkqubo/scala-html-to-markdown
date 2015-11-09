@@ -5,6 +5,10 @@ import org.jsoup.nodes.{Node, Element}
 import scala.collection.JavaConversions._
 
 
+/**
+  * Converts html text into GitHub flavored markdown text
+  * see. [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)
+  */
 class GitHubFlavoredMarkdownConverter
   extends MarkdownConverter {
   val rules: Seq[ConversionRule] = Seq(

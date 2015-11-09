@@ -10,16 +10,16 @@ import org.jsoup.nodes._
 trait MarkdownConverter {
   val rules: Seq[ConversionRule]
   /**
-    * Provide the [[Node]] instance with its markdown representation.
+    * Provide the `org.jsoup.nodes.Node` instance with its markdown representation.
     *
-    * The markdown text will be stored in [[markdownAttribute]] attribute
+    * The markdown text will be stored in `"data-converted-markdown"` attribute
     * @param node
     */
   def provideMarkdown(node: Node): Unit =
     node.markdown = convert(node)
 
   /**
-    * Converts the [[Node]] instance into its markdown representation
+    * Converts the `org.jsoup.nodes.Node` instance into its markdown representation
     * @param node
     * @return
     */

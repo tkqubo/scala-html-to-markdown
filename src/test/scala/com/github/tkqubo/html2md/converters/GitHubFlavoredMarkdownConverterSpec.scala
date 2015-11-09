@@ -3,11 +3,15 @@ package com.github.tkqubo.html2md.converters
 import com.github.tkqubo.html2md.Html2Markdown
 import org.specs2.mutable.Specification
 
+/**
+  * Test class for [[GitHubFlavoredMarkdownConverter]]
+  */
 class GitHubFlavoredMarkdownConverterSpec
   extends Specification {
   val target = new Html2Markdown(MarkdownConverter.Gfm)
   def toMarkdown: (String) => String = target.toMarkdown
 
+  // tests below are originally taken from https://github.com/domchristie/to-markdown/blob/master/test/gfm-test.js
   "Html2Markdown(MarkdownConverter.Gfm).toMarkdown" should {
     "line breaks" in {
       toMarkdown("<p>Hello<br>world</p>") === "Hello\nworld"
