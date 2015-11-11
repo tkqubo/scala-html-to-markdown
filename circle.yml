@@ -24,3 +24,4 @@ deployment:
     commands:
       - cat /dev/null | sbt doc
       - cat /dev/null | sbt coverageReport
+      - cat /dev/null | git push origin :gh-pages && git subtree push --prefix target/api/ origin gh-pages"
