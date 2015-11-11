@@ -3,7 +3,6 @@ package com.github.tkqubo
 import org.jsoup.nodes.Element
 
 /** Main package for HTML-to-Markdown */
-//noinspection ScalaStyle
 package object html2md {
   /**
     * Type alias for the function that takes html content and html element itself as parameters and returns markdown text

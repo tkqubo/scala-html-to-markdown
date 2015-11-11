@@ -4,28 +4,17 @@ import org.jsoup.nodes.Element
 
 /**
   * Defines the html tag conversion rule
-  * TODO: this case class can be a simple tuple
-  * @param matcher Returns whether the `org.jsoup.nodes.Element` instance should be converted by this instance
-  * @param converter Converts the `org.jsoup.nodes.Element` instance into markdown text
   */
 case class ConversionRule(
-  matcher: Matcher,
-  converter: Converter
-) {
   /**
     * Returns whether the `org.jsoup.nodes.Element` instance should be converted by this instance
-    * @param element
-    * @return
     */
-  def shouldConvert(element: Element): Boolean = matcher(element)
+  shouldConvert: Matcher,
   /**
     * Converts the `org.jsoup.nodes.Element` instance into markdown text
-    * @param content
-    * @param element
-    * @return
     */
-  def convert(content: String, element: Element): String = converter(content, element)
-}
+  convert: Converter
+)
 
 /**
   * Defines implicit conversions for [[ConversionRule]]
