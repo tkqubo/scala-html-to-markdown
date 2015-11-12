@@ -1,0 +1,308 @@
+<!DOCTYPE html >
+<html>
+        <head>
+          <title>html2md - com.github.tkqubo.html2md</title>
+          <meta name="description" content="html2md - com.github.tkqubo.html2md" />
+          <meta name="keywords" content="html2md com.github.tkqubo.html2md" />
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      
+      <script type="text/javascript">
+         if(top === self) {
+            var url = '../../../../index.html';
+            var hash = 'com.github.tkqubo.html2md.package';
+            var anchor = window.location.hash;
+            var anchor_opt = '';
+            if (anchor.length >= 1)
+              anchor_opt = '@' + anchor.substring(1);
+            window.location.href = url + '#' + hash + anchor_opt;
+         }
+   	  </script>
+    
+        </head>
+        <body class="value">
+      <div id="definition">
+        <img alt="Package" src="../../../../lib/package_big.png" />
+        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.github">github</a>.<a href="../package.html" class="extype" name="com.github.tkqubo">tkqubo</a></p>
+        <h1>html2md</h1><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      </div>
+
+      <h4 id="signature" class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <span class="name">html2md</span>
+      </span>
+      </h4>
+      
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Main package for HTML-to-Markdown</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div></div>
+        
+
+      <div id="mbrsel">
+        <div id="textfilter"><span class="pre"></span><span class="input"><input id="mbrsel-input" type="text" accesskey="/" /></span><span class="post"></span></div>
+        <div id="order">
+              <span class="filtertype">Ordering</span>
+              <ol>
+                
+                <li class="alpha in"><span>Alphabetic</span></li>
+                <li class="inherit out"><span>By inheritance</span></li>
+              </ol>
+            </div>
+        <div id="ancestors">
+                <span class="filtertype">Inherited<br />
+                </span>
+                <ol id="linearization">
+                  <li class="in" name="com.github.tkqubo.html2md"><span>html2md</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                </ol>
+              </div><div id="ancestors">
+            <span class="filtertype"></span>
+            <ol>
+              <li class="hideall out"><span>Hide All</span></li>
+              <li class="showall in"><span>Show all</span></li>
+            </ol>
+          </div>
+        <div id="visbl">
+            <span class="filtertype">Visibility</span>
+            <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+          </div>
+      </div>
+
+      <div id="template">
+        <div id="allMembers">
+        
+
+        <div id="types" class="types members">
+              <h3>Type Members</h3>
+              <ol><li name="com.github.tkqubo.html2md.ConversionRule" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConversionRuleextendsProductwithSerializable"></a>
+      <a id="ConversionRule:ConversionRule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">case class</span>
+      </span>
+      <span class="symbol">
+        <a href="ConversionRule.html"><span class="name">ConversionRule</span></a><span class="params">(<span name="shouldConvert">shouldConvert: <a href="#Matcher=org.jsoup.nodes.Element=&gt;Boolean" class="extmbr" name="com.github.tkqubo.html2md.Matcher">Matcher</a></span>, <span name="convert">convert: <a href="#Converter=(String,org.jsoup.nodes.Element)=&gt;String" class="extmbr" name="com.github.tkqubo.html2md.Converter">Converter</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@ConversionRuleextendsProductwithSerializable" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Defines the html tag conversion rule
+</p>
+    </li><li name="com.github.tkqubo.html2md.Converter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Converter=(String,org.jsoup.nodes.Element)=&gt;String"></a>
+      <a id="Converter:Converter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Converter</span><span class="result"> = (<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="org.jsoup.nodes.Element">Element</span>) ⇒ <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@Converter=(String,org.jsoup.nodes.Element)=&gt;String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Type alias for the function that takes html content and html element itself as parameters and returns markdown text
+</p>
+    </li><li name="com.github.tkqubo.html2md.ElementConverter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ElementConverter=org.jsoup.nodes.Element=&gt;String"></a>
+      <a id="ElementConverter:ElementConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ElementConverter</span><span class="result"> = (<span class="extype" name="org.jsoup.nodes.Element">Element</span>) ⇒ <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@ElementConverter=org.jsoup.nodes.Element=&gt;String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Type alias for the function that takes html element itself a parameter and returns markdown text
+</p>
+    </li><li name="com.github.tkqubo.html2md.Html2Markdown" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Html2MarkdownextendsAnyRef"></a>
+      <a id="Html2Markdown:Html2Markdown"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">class</span>
+      </span>
+      <span class="symbol">
+        <a href="Html2Markdown.html"><span class="name">Html2Markdown</span></a><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@Html2MarkdownextendsAnyRef" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts html text into markdown text</p>
+    </li><li name="com.github.tkqubo.html2md.Matcher" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Matcher=org.jsoup.nodes.Element=&gt;Boolean"></a>
+      <a id="Matcher:Matcher"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">Matcher</span><span class="result"> = (<span class="extype" name="org.jsoup.nodes.Element">Element</span>) ⇒ <span class="extype" name="scala.Boolean">Boolean</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@Matcher=org.jsoup.nodes.Element=&gt;Boolean" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Type alias for the function to return whethere the element should be converted
+</p>
+    </li><li name="com.github.tkqubo.html2md.StringConverter" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="StringConverter=String=&gt;String"></a>
+      <a id="StringConverter:StringConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">type</span>
+      </span>
+      <span class="symbol">
+        <span class="name">StringConverter</span><span class="result"> = (<span class="extype" name="scala.Predef.String">String</span>) ⇒ <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@StringConverter=String=&gt;String" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Type alias for the function that takes html content as a parameter and returns markdown text
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div id="values" class="values members">
+              <h3>Value Members</h3>
+              <ol><li name="com.github.tkqubo.html2md.ConversionRule" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ConversionRule"></a>
+      <a id="ConversionRule:ConversionRule"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="ConversionRule$.html"><span class="name">ConversionRule</span></a><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@ConversionRule" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Defines implicit conversions for <a href="ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a>
+</p>
+    </li><li name="com.github.tkqubo.html2md.Html2Markdown" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="Html2Markdown"></a>
+      <a id="Html2Markdown:Html2Markdown"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">object</span>
+      </span>
+      <span class="symbol">
+        <a href="Html2Markdown$.html"><span class="name">Html2Markdown</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@Html2Markdown" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Companion object for <a href="Html2Markdown.html" class="extype" name="com.github.tkqubo.html2md.Html2Markdown">Html2Markdown</a></p>
+    </li><li name="com.github.tkqubo.html2md.converters" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="converters"></a>
+      <a id="converters:converters"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="converters/package.html"><span class="name">converters</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@converters" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Defines various markdown conversion rules as <a href="converters/MarkdownConverter.html" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">com.github.tkqubo.html2md.converters.MarkdownConverter</a> implementations
+</p>
+    </li><li name="com.github.tkqubo.html2md.helpers" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="helpers"></a>
+      <a id="helpers:helpers"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">package</span>
+      </span>
+      <span class="symbol">
+        <a href="helpers/package.html"><span class="name">helpers</span></a>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.package@helpers" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Defines various helper classes
+</p>
+    </li></ol>
+            </div>
+
+        
+
+        
+        </div>
+
+        <div id="inheritedMembers">
+        <div class="parent" name="scala.AnyRef">
+              <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
+            </div><div class="parent" name="scala.Any">
+              <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>
+            </div>
+        
+        </div>
+
+        <div id="groupedMembers">
+        <div class="group" name="Ungrouped">
+              <h3>Ungrouped</h3>
+              
+            </div>
+        </div>
+
+      </div>
+
+      <div id="tooltip"></div>
+
+      <div id="footer">  </div>
+
+
+    </body>
+      </html>
