@@ -14,3 +14,7 @@ lazy val root = project.in(file(".")).dependsOn(githubRepo)
 lazy val githubRepo = uri("git://github.com/scoverage/sbt-coveralls.git")
 
 addSbtPlugin("com.github.gseitz" % "sbt-release" % "1.0.0")
+
+// sbt-ghpages
+resolvers += "jgit-repo" at "http://download.eclipse.org/jgit/maven"
+addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.5.4")

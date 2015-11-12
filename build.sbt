@@ -61,3 +61,9 @@ releasePublishArtifactsAction := PgpKeys.publishSigned.value
 
 // disable using the Scala version in output paths and artifacts
 crossPaths := false
+
+// sbt-ghpages
+site.settings
+site.includeScaladoc()
+ghpages.settings
+git.remoteRepo := "git@github.com:tkqubo/scala-html-to-markdown.git"
