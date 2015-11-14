@@ -1,0 +1,8 @@
+engines:
+  scalastyle:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths: []
+exclude_paths: []
