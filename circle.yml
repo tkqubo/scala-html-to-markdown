@@ -24,6 +24,4 @@ deployment:
     commands:
       - cat /dev/null | sbt doc
       - cat /dev/null | sbt coverageReport
-      - git config credential.helper "store --file=.git/credentials"
-      - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-      - cat /dev/null | git push origin :gh-pages && git subtree push --prefix target/api origin gh-pages
+      - cat /dev/null | sbt ghpages-push-site
