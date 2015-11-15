@@ -8,6 +8,9 @@ general:
   artifacts:
     - target/*/scoverage-report
     - target/*/api
+  branches:
+    ignore:
+      - gh-pages
 dependencies:
   cache_directories:
     - "~/.sbt"
@@ -24,4 +27,6 @@ deployment:
     commands:
       - cat /dev/null | sbt doc
       - cat /dev/null | sbt coverageReport
+      - cat /dev/null | git config --global user.email "tk.qubo@gmail.com"
+      - cat /dev/null | git config --global user.name "tkqubo"
       - cat /dev/null | sbt ghpages-push-site
