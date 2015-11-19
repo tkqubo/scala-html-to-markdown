@@ -58,4 +58,11 @@ object Html2Markdown {
     */
   def toMarkdown(html: String, converter: MarkdownConverter = MarkdownConverter.Default): String =
     new Html2Markdown(converter).toMarkdown(html)
+  
+  /**
+    * Returns markdown text converted from the given [html] string with [[MarkdownConverter.Default]] converter.
+    * @param html
+    */
+  def toMarkdown(html: String): String =
+    toMarkdown(html, MarkdownConverter.Default)
 }
