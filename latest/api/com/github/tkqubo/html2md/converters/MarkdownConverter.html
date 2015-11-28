@@ -1,22 +1,22 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>OnType - com.github.tkqubo.tsap.OnType</title>
-          <meta name="description" content="OnType - com.github.tkqubo.tsap.OnType" />
-          <meta name="keywords" content="OnType com.github.tkqubo.tsap.OnType" />
+          <title>MarkdownConverter - com.github.tkqubo.html2md.converters.MarkdownConverter</title>
+          <meta name="description" content="MarkdownConverter - com.github.tkqubo.html2md.converters.MarkdownConverter" />
+          <meta name="keywords" content="MarkdownConverter com.github.tkqubo.html2md.converters.MarkdownConverter" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
-      <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
-      <link href="../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
-      <script type="text/javascript" src="../../../../lib/jquery.js" id="jquery-js"></script>
-      <script type="text/javascript" src="../../../../lib/jquery-ui.js"></script>
-      <script type="text/javascript" src="../../../../lib/template.js"></script>
-      <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
+      <link href="../../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
+      <link href="../../../../../lib/diagrams.css" media="screen" type="text/css" rel="stylesheet" id="diagrams-css" />
+      <script type="text/javascript" src="../../../../../lib/jquery.js" id="jquery-js"></script>
+      <script type="text/javascript" src="../../../../../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../../../../../lib/template.js"></script>
+      <script type="text/javascript" src="../../../../../lib/tools.tooltip.js"></script>
       
       <script type="text/javascript">
          if(top === self) {
-            var url = '../../../../index.html';
-            var hash = 'com.github.tkqubo.tsap.OnType';
+            var url = '../../../../../index.html';
+            var hash = 'com.github.tkqubo.html2md.converters.MarkdownConverter';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,13 +28,15 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../../../lib/class_big.png" />
-        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.github">github</a>.<a href="../package.html" class="extype" name="com.github.tkqubo">tkqubo</a>.<a href="package.html" class="extype" name="com.github.tkqubo.tsap">tsap</a></p>
-        <h1>OnType</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="package.html" class="extype" name="com.github.tkqubo.tsap">package tsap</a>
+        <a href="MarkdownConverter$.html" title="See companion object"><img alt="Trait/Object" src="../../../../../lib/trait_to_object_big.png" /></a>
+        <p id="owner"><a href="../../../../package.html" class="extype" name="com">com</a>.<a href="../../../package.html" class="extype" name="com.github">github</a>.<a href="../../package.html" class="extype" name="com.github.tkqubo">tkqubo</a>.<a href="../package.html" class="extype" name="com.github.tkqubo.html2md">html2md</a>.<a href="package.html" class="extype" name="com.github.tkqubo.html2md.converters">converters</a></p>
+        <h1><a href="MarkdownConverter$.html" title="See companion object">MarkdownConverter</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="MarkdownConverter$.html" title="See companion object">object MarkdownConverter</a>
+            | <a href="package.html" class="extype" name="com.github.tkqubo.html2md.converters">package converters</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       </div>
@@ -42,17 +44,21 @@
       <h4 id="signature" class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
-        <span class="kind">class</span>
+        <span class="kind">trait</span>
       </span>
       <span class="symbol">
-        <span class="name">OnType</span><span class="result"> extends <span class="extype" name="scala.annotation.Annotation">Annotation</span> with <span class="extype" name="java.lang.annotation.Annotation">Annotation</span> with <span class="extype" name="scala.annotation.ClassfileAnnotation">ClassfileAnnotation</span></span>
+        <span class="name">MarkdownConverter</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Performs html tag conversion according to the given [rules]
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.annotation.ClassfileAnnotation">ClassfileAnnotation</span>, <span class="extype" name="scala.annotation.StaticAnnotation">StaticAnnotation</span>, <span class="extype" name="java.lang.annotation.Annotation">Annotation</span>, <span class="extype" name="scala.annotation.Annotation">Annotation</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
-        </div></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+        </div><div class="toggleContainer block">
+            <span class="toggle">Known Subclasses</span>
+            <div class="subClasses hiddenContent"><a href="DefaultMarkdownConverter.html" class="extype" name="com.github.tkqubo.html2md.converters.DefaultMarkdownConverter">DefaultMarkdownConverter</a>, <a href="GitHubFlavoredMarkdownConverter.html" class="extype" name="com.github.tkqubo.html2md.converters.GitHubFlavoredMarkdownConverter">GitHubFlavoredMarkdownConverter</a></div>
+          </div></div>
         
 
       <div id="mbrsel">
@@ -69,7 +75,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.github.tkqubo.tsap.OnType"><span>OnType</span></li><li class="in" name="scala.annotation.ClassfileAnnotation"><span>ClassfileAnnotation</span></li><li class="in" name="scala.annotation.StaticAnnotation"><span>StaticAnnotation</span></li><li class="in" name="java.lang.annotation.Annotation"><span>Annotation</span></li><li class="in" name="scala.annotation.Annotation"><span>Annotation</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.github.tkqubo.html2md.converters.MarkdownConverter"><span>MarkdownConverter</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -86,63 +92,26 @@
 
       <div id="template">
         <div id="allMembers">
-        <div id="constructors" class="members">
-              <h3>Instance Constructors</h3>
-              <ol><li name="com.github.tkqubo.tsap.OnType#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;():com.github.tkqubo.tsap.OnType"></a>
-      <a id="&lt;init&gt;:OnType"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">new</span>
-      </span>
-      <span class="symbol">
-        <span class="name">OnType</span><span class="params">()</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@&lt;init&gt;():com.github.tkqubo.tsap.OnType" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li></ol>
-            </div>
+        
 
         
 
         <div id="values" class="values members">
               <h3>Abstract Value Members</h3>
-              <ol><li name="java.lang.annotation.Annotation#annotationType" visbl="pub" data-isabs="true" fullComment="yes" group="Ungrouped">
-      <a id="annotationType():Class[_&lt;:java.lang.annotation.Annotation]"></a>
-      <a id="annotationType():Class[_&lt;:Annotation]"></a>
+              <ol><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#rules" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
+      <a id="rules:Seq[com.github.tkqubo.html2md.ConversionRule]"></a>
+      <a id="rules:Seq[ConversionRule]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier">abstract </span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">annotationType</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_ &lt;: <span class="extype" name="java.lang.annotation.Annotation">Annotation</span>]</span>
+        <span class="name">rules</span><span class="result">: <span class="extype" name="scala.Seq">Seq</span>[<a href="../ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@annotationType():Class[_&lt;:java.lang.annotation.Annotation]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Annotation</dd></dl></div>
-    </li><li name="com.github.tkqubo.tsap.OnType#value" visbl="pub" data-isabs="true" fullComment="no" group="Ungrouped">
-      <a id="value():Class[_]"></a>
-      <a id="value():Class[_]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier">abstract </span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">value</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@value():Class[_]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@rules:Seq[com.github.tkqubo.html2md.ConversionRule]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       
@@ -163,8 +132,8 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@!=(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -180,11 +149,62 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@##():Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@##():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#+" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="+(rule:com.github.tkqubo.html2md.ConversionRule):com.github.tkqubo.html2md.converters.MarkdownConverter"></a>
+      <a id="+(ConversionRule):MarkdownConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus" class="name">+</span><span class="params">(<span name="rule">rule: <a href="../ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a></span>)</span><span class="result">: <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@+(rule:com.github.tkqubo.html2md.ConversionRule):com.github.tkqubo.html2md.converters.MarkdownConverter" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a new <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a> instance whose conversion rules is the concatenation of this instance and the given <a href="../ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a></p>
+    </li><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#++" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="++(that:com.github.tkqubo.html2md.converters.MarkdownConverter):com.github.tkqubo.html2md.converters.MarkdownConverter"></a>
+      <a id="++(MarkdownConverter):MarkdownConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus$plus" class="name">++</span><span class="params">(<span name="that">that: <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a></span>)</span><span class="result">: <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@++(that:com.github.tkqubo.html2md.converters.MarkdownConverter):com.github.tkqubo.html2md.converters.MarkdownConverter" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a new <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a> instance whose conversion rules are the concatenation of this instance and the given <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a></p>
+    </li><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#+:" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="+:(rule:com.github.tkqubo.html2md.ConversionRule):com.github.tkqubo.html2md.converters.MarkdownConverter"></a>
+      <a id="+:(ConversionRule):MarkdownConverter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span title="gt4s: $plus$colon" class="name">+:</span><span class="params">(<span name="rule">rule: <a href="../ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a></span>)</span><span class="result">: <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@+:(rule:com.github.tkqubo.html2md.ConversionRule):com.github.tkqubo.html2md.converters.MarkdownConverter" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Returns a new <a href="" class="extype" name="com.github.tkqubo.html2md.converters.MarkdownConverter">MarkdownConverter</a> instance whose conversion rules is the concatenation of the given <a href="../ConversionRule.html" class="extype" name="com.github.tkqubo.html2md.ConversionRule">ConversionRule</a> and this instance</p>
     </li><li name="scala.AnyRef#==" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="==(x$1:Any):Boolean"></a>
       <a id="==(Any):Boolean"></a>
@@ -197,8 +217,8 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@==(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@==(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -214,8 +234,8 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@asInstanceOf[T0]:T0" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -231,17 +251,34 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@clone():Object" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@clone():Object" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="defval" name="classOf[java.lang.CloneNotSupportedException]">...</span>
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#convert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="convert(node:org.jsoup.nodes.Node):String"></a>
+      <a id="convert(Node):String"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">convert</span><span class="params">(<span name="node">node: <span class="extype" name="org.jsoup.nodes.Node">Node</span></span>)</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@convert(node:org.jsoup.nodes.Node):String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Converts the <code>org.jsoup.nodes.Node</code> instance into its markdown representation</p>
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -254,8 +291,8 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -271,8 +308,8 @@
         <span class="name">equals</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@equals(x$1:Any):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@equals(x$1:Any):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -288,11 +325,11 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@finalize():Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@finalize():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a href="../../../../../java$lang.html" class="extype" name="java.lang">java.lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
                 <span class="name">@throws</span><span class="args">(<span>
       
       <span class="symbol">classOf[java.lang.Throwable]</span>
@@ -311,8 +348,8 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@getClass():Class[_]" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@getClass():Class[_]" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -328,8 +365,8 @@
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@hashCode():Int" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@hashCode():Int" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -345,8 +382,8 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
@@ -362,8 +399,8 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -379,8 +416,8 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@notify():Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@notify():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -396,11 +433,28 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@notifyAll():Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@notifyAll():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.github.tkqubo.html2md.converters.MarkdownConverter#provideMarkdown" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="provideMarkdown(node:org.jsoup.nodes.Node):Unit"></a>
+      <a id="provideMarkdown(Node):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">provideMarkdown</span><span class="params">(<span name="node">node: <span class="extype" name="org.jsoup.nodes.Node">Node</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@provideMarkdown(node:org.jsoup.nodes.Node):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Provide the <code>org.jsoup.nodes.Node</code> instance with its markdown representation.</p><div class="fullcomment"><div class="comment cmt"><p>Provide the <code>org.jsoup.nodes.Node</code> instance with its markdown representation.</p><p>The markdown text will be stored in <code>&quot;data-converted-markdown&quot;</code> attribute</p></div></div>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -413,8 +467,8 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
@@ -430,8 +484,8 @@
         <span class="name">toString</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@toString():String" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@toString():String" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
@@ -447,8 +501,8 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@wait():Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@wait():Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -470,8 +524,8 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -493,8 +547,8 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.OnType@wait(x$1:Long):Unit" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      <a href="../../../../../index.html#com.github.tkqubo.html2md.converters.MarkdownConverter@wait(x$1:Long):Unit" title="Permalink" target="_top">
+        <img src="../../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
@@ -513,15 +567,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.annotation.ClassfileAnnotation">
-              <h3>Inherited from <span class="extype" name="scala.annotation.ClassfileAnnotation">ClassfileAnnotation</span></h3>
-            </div><div class="parent" name="scala.annotation.StaticAnnotation">
-              <h3>Inherited from <span class="extype" name="scala.annotation.StaticAnnotation">StaticAnnotation</span></h3>
-            </div><div class="parent" name="java.lang.annotation.Annotation">
-              <h3>Inherited from <span class="extype" name="java.lang.annotation.Annotation">Annotation</span></h3>
-            </div><div class="parent" name="scala.annotation.Annotation">
-              <h3>Inherited from <span class="extype" name="scala.annotation.Annotation">Annotation</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

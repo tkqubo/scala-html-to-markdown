@@ -1,9 +1,9 @@
 <!DOCTYPE html >
 <html>
         <head>
-          <title>ValOrDefDefWithType - com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType</title>
-          <meta name="description" content="ValOrDefDefWithType - com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType" />
-          <meta name="keywords" content="ValOrDefDefWithType com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType" />
+          <title>ConversionRule - com.github.tkqubo.html2md.ConversionRule</title>
+          <meta name="description" content="ConversionRule - com.github.tkqubo.html2md.ConversionRule" />
+          <meta name="keywords" content="ConversionRule com.github.tkqubo.html2md.ConversionRule" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../../lib/template.css" media="screen" type="text/css" rel="stylesheet" />
@@ -16,7 +16,7 @@
       <script type="text/javascript">
          if(top === self) {
             var url = '../../../../index.html';
-            var hash = 'com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType';
+            var hash = 'com.github.tkqubo.html2md.ConversionRule';
             var anchor = window.location.hash;
             var anchor_opt = '';
             if (anchor.length >= 1)
@@ -28,12 +28,14 @@
         </head>
         <body class="type">
       <div id="definition">
-        <img alt="Class" src="../../../../lib/class_big.png" />
-        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.github">github</a>.<a href="../package.html" class="extype" name="com.github.tkqubo">tkqubo</a>.<a href="package.html" class="extype" name="com.github.tkqubo.tsap">tsap</a>.<a href="TypeSafeAnnotationPlugin.html" class="extype" name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin">TypeSafeAnnotationPlugin</a></p>
-        <h1>ValOrDefDefWithType</h1><h3><span class="morelinks"><div>Related Doc:
-            <a href="TypeSafeAnnotationPlugin.html" class="extype" name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin">package TypeSafeAnnotationPlugin</a>
+        <a href="ConversionRule$.html" title="See companion object"><img alt="Class/Object" src="../../../../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a href="../../../package.html" class="extype" name="com">com</a>.<a href="../../package.html" class="extype" name="com.github">github</a>.<a href="../package.html" class="extype" name="com.github.tkqubo">tkqubo</a>.<a href="package.html" class="extype" name="com.github.tkqubo.html2md">html2md</a></p>
+        <h1><a href="ConversionRule$.html" title="See companion object">ConversionRule</a></h1><h3><span class="morelinks"><div>
+            Related Docs:
+            <a href="ConversionRule$.html" title="See companion object">object ConversionRule</a>
+            | <a href="package.html" class="extype" name="com.github.tkqubo.html2md">package html2md</a>
           </div></span></h3><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -45,11 +47,12 @@
         <span class="kind">case class</span>
       </span>
       <span class="symbol">
-        <span class="name">ValOrDefDefWithType</span><span class="params">(<span name="valOrDefDef">valOrDefDef: <span class="extype" name="scala.reflect.internal.Trees.ValOrDefDef">scala.tools.nsc.Global.ValOrDefDef</span></span>, <span name="annotationType">annotationType: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>, <span name="annotatedType">annotatedType: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">ConversionRule</span><span class="params">(<span name="shouldConvert">shouldConvert: <a href="package.html#Matcher=org.jsoup.nodes.Element=&gt;Boolean" class="extmbr" name="com.github.tkqubo.html2md.Matcher">Matcher</a></span>, <span name="convert">convert: <a href="package.html#Converter=(String,org.jsoup.nodes.Element)=&gt;String" class="extmbr" name="com.github.tkqubo.html2md.Converter">Converter</a></span>)</span><span class="result"> extends <span class="extype" name="scala.Product">Product</span> with <span class="extype" name="scala.Serializable">Serializable</span></span>
       </span>
       </h4>
       
-          <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Defines the html tag conversion rule
+</p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.Product">Product</span>, <span class="extype" name="scala.Equals">Equals</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
@@ -69,7 +72,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType"><span>ValOrDefDefWithType</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="com.github.tkqubo.html2md.ConversionRule"><span>ConversionRule</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.Product"><span>Product</span></li><li class="in" name="scala.Equals"><span>Equals</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -88,19 +91,19 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(valOrDefDef:TypeSafeAnnotationPlugin.this.global.ValOrDefDef,annotationType:TypeSafeAnnotationPlugin.this.global.Type,annotatedType:TypeSafeAnnotationPlugin.this.global.Type):TypeSafeAnnotationPlugin.this.ValOrDefDefWithType"></a>
-      <a id="&lt;init&gt;:ValOrDefDefWithType"></a>
+              <ol><li name="com.github.tkqubo.html2md.ConversionRule#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="&lt;init&gt;(shouldConvert:com.github.tkqubo.html2md.Matcher,convert:com.github.tkqubo.html2md.Converter):com.github.tkqubo.html2md.ConversionRule"></a>
+      <a id="&lt;init&gt;:ConversionRule"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ValOrDefDefWithType</span><span class="params">(<span name="valOrDefDef">valOrDefDef: <span class="extype" name="scala.reflect.internal.Trees.ValOrDefDef">scala.tools.nsc.Global.ValOrDefDef</span></span>, <span name="annotationType">annotationType: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>, <span name="annotatedType">annotatedType: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>)</span>
+        <span class="name">ConversionRule</span><span class="params">(<span name="shouldConvert">shouldConvert: <a href="package.html#Matcher=org.jsoup.nodes.Element=&gt;Boolean" class="extmbr" name="com.github.tkqubo.html2md.Matcher">Matcher</a></span>, <span name="convert">convert: <a href="package.html#Converter=(String,org.jsoup.nodes.Element)=&gt;String" class="extmbr" name="com.github.tkqubo.html2md.Converter">Converter</a></span>)</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@&lt;init&gt;(valOrDefDef:TypeSafeAnnotationPlugin.this.global.ValOrDefDef,annotationType:TypeSafeAnnotationPlugin.this.global.Type,annotatedType:TypeSafeAnnotationPlugin.this.global.Type):TypeSafeAnnotationPlugin.this.ValOrDefDefWithType" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@&lt;init&gt;(shouldConvert:com.github.tkqubo.html2md.Matcher,convert:com.github.tkqubo.html2md.Converter):com.github.tkqubo.html2md.ConversionRule" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -126,7 +129,7 @@
         <span title="gt4s: $bang$eq" class="name">!=</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@!=(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@!=(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -143,7 +146,7 @@
         <span title="gt4s: $hash$hash" class="name">##</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@##():Int" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@##():Int" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -160,45 +163,11 @@
         <span title="gt4s: $eq$eq" class="name">==</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@==(x$1:Any):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@==(x$1:Any):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
-    </li><li name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType#annotatedType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="annotatedType:TypeSafeAnnotationPlugin.this.global.Type"></a>
-      <a id="annotatedType:scala.tools.nsc.Global.Type"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">annotatedType</span><span class="result">: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@annotatedType:TypeSafeAnnotationPlugin.this.global.Type" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType#annotationType" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="annotationType:TypeSafeAnnotationPlugin.this.global.Type"></a>
-      <a id="annotationType:scala.tools.nsc.Global.Type"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">annotationType</span><span class="result">: <span class="extype" name="scala.reflect.internal.Types.Type">scala.tools.nsc.Global.Type</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@annotationType:TypeSafeAnnotationPlugin.this.global.Type" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -211,7 +180,7 @@
         <span class="name">asInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Any.asInstanceOf.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@asInstanceOf[T0]:T0" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@asInstanceOf[T0]:T0" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -228,7 +197,7 @@
         <span class="name">clone</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@clone():Object" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@clone():Object" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -239,6 +208,23 @@
     </span>)</span>
               
         </dd></dl></div>
+    </li><li name="com.github.tkqubo.html2md.ConversionRule#convert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="convert:com.github.tkqubo.html2md.Converter"></a>
+      <a id="convert:Converter"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">convert</span><span class="result">: <a href="package.html#Converter=(String,org.jsoup.nodes.Element)=&gt;String" class="extmbr" name="com.github.tkqubo.html2md.Converter">Converter</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@convert:com.github.tkqubo.html2md.Converter" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#eq" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="eq(x$1:AnyRef):Boolean"></a>
       <a id="eq(AnyRef):Boolean"></a>
@@ -251,7 +237,7 @@
         <span class="name">eq</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@eq(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -268,7 +254,7 @@
         <span class="name">finalize</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@finalize():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@finalize():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -291,7 +277,7 @@
         <span class="name">getClass</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[_]</span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@getClass():Class[_]" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@getClass():Class[_]" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -308,7 +294,7 @@
         <span class="name">isInstanceOf</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@isInstanceOf[T0]:Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -325,7 +311,7 @@
         <span class="name">ne</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.AnyRef">AnyRef</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@ne(x$1:AnyRef):Boolean" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -342,7 +328,7 @@
         <span class="name">notify</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@notify():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@notify():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -359,11 +345,28 @@
         <span class="name">notifyAll</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@notifyAll():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@notifyAll():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="com.github.tkqubo.html2md.ConversionRule#shouldConvert" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="shouldConvert:com.github.tkqubo.html2md.Matcher"></a>
+      <a id="shouldConvert:Matcher"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">shouldConvert</span><span class="result">: <a href="package.html#Matcher=org.jsoup.nodes.Element=&gt;Boolean" class="extmbr" name="com.github.tkqubo.html2md.Matcher">Matcher</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@shouldConvert:com.github.tkqubo.html2md.Matcher" title="Permalink" target="_top">
+        <img src="../../../../lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="scala.AnyRef#synchronized" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a>
       <a id="synchronized[T0](⇒T0):T0"></a>
@@ -376,28 +379,11 @@
         <span class="name">synchronized</span><span class="tparams">[<span name="T0">T0</span>]</span><span class="params">(<span name="arg0">arg0: ⇒ <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>)</span><span class="result">: <span class="extype" name="java.lang.AnyRef.synchronized.T0">T0</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@synchronized[T0](x$1:=&gt;T0):T0" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
-    </li><li name="com.github.tkqubo.tsap.TypeSafeAnnotationPlugin.ValOrDefDefWithType#valOrDefDef" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="valOrDefDef:TypeSafeAnnotationPlugin.this.global.ValOrDefDef"></a>
-      <a id="valOrDefDef:scala.tools.nsc.Global.ValOrDefDef"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">val</span>
-      </span>
-      <span class="symbol">
-        <span class="name">valOrDefDef</span><span class="result">: <span class="extype" name="scala.reflect.internal.Trees.ValOrDefDef">scala.tools.nsc.Global.ValOrDefDef</span></span>
-      </span>
-      </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@valOrDefDef:TypeSafeAnnotationPlugin.this.global.ValOrDefDef" title="Permalink" target="_top">
-        <img src="../../../../lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
     </li><li name="scala.AnyRef#wait" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <a id="wait():Unit"></a>
@@ -410,7 +396,7 @@
         <span class="name">wait</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@wait():Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@wait():Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -433,7 +419,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>, <span name="arg1">arg1: <span class="extype" name="scala.Int">Int</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@wait(x$1:Long,x$2:Int):Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -456,7 +442,7 @@
         <span class="name">wait</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Long">Long</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4><span class="permalink">
-      <a href="../../../../index.html#com.github.tkqubo.tsap.TypeSafeAnnotationPlugin$ValOrDefDefWithType@wait(x$1:Long):Unit" title="Permalink" target="_top">
+      <a href="../../../../index.html#com.github.tkqubo.html2md.ConversionRule@wait(x$1:Long):Unit" title="Permalink" target="_top">
         <img src="../../../../lib/permalink.png" alt="Permalink" />
       </a>
     </span>
