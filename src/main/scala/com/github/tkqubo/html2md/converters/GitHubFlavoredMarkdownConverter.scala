@@ -11,7 +11,7 @@ import scala.collection.JavaConversions._
   */
 class GitHubFlavoredMarkdownConverter
   extends DefaultMarkdownConverter {
-  override val rules: Seq[ConversionRule] = Seq[ConversionRule](
+  override def rules: Seq[ConversionRule] = Seq[ConversionRule](
     'br -> "\n",
 
     Seq('del, 's, 'strike) -> { content: String => s"~~$content~~" },
