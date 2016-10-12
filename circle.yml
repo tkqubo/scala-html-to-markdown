@@ -18,7 +18,7 @@ dependencies:
     - echo "N/A"
 test:
   override:
-    - cat /dev/null | sbt scalastyle clean coverage test
+    - cat /dev/null | sbt scalastyle clean coverage test coverageReport
   post:
     - sbt coveralls
 deployment:
