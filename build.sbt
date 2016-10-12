@@ -2,10 +2,10 @@ organization := "com.github.tkqubo"
 
 name := "html-to-markdown"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.11.8"
 
-val specs2Ver = "3.6.4"
-val jsoupVer = "1.8.3"
+val specs2Ver = "3.8.5"
+val jsoupVer = "1.9.2"
 
 libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % jsoupVer,
@@ -44,7 +44,8 @@ pomExtra := (
         <name>Takaichi Kubo</name>
         <url>https://github.com/tkqubo</url>
       </developer>
-    </developers>)
+    </developers>
+  )
 publishTo <<= version { (v: String) =>
   val nexus = "https://oss.sonatype.org/"
   if (v.trim.endsWith("SNAPSHOT")) {
