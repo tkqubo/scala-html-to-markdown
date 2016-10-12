@@ -2,6 +2,8 @@ package com.github.tkqubo.html2md
 
 import org.jsoup.nodes.Element
 
+import scala.language.implicitConversions
+
 /**
   * Defines the html tag conversion rule
   */

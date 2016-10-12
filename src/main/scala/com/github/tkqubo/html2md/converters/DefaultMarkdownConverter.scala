@@ -10,7 +10,7 @@ import scala.collection.JavaConversions._
   * Converts html text into markdown
   */
 class DefaultMarkdownConverter extends MarkdownConverter {
-  def rules: Seq[ConversionRule] = Seq(
+  override protected def rules: Seq[ConversionRule] = Seq(
     'p -> { content: String => s"\n\n$content\n\n" },
 
     'br -> "  \n",

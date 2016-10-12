@@ -428,6 +428,9 @@ class DefaultMarkdownConverterSpec
       "Blank a" in {
         toMarkdown("""<a href="#foo"></a>""") === "[](#foo)"
       }
+      "Not a blank with attribute" in {
+        toMarkdown("<div class='foo'></div>") must not(beEmpty)
+      }
     }
   }
 }

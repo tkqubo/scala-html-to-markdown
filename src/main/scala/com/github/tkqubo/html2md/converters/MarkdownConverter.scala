@@ -8,7 +8,7 @@ import org.jsoup.nodes._
   * Performs html tag conversion according to the given [rules]
   */
 trait MarkdownConverter {
-  def rules: Seq[ConversionRule]
+  protected def rules: Seq[ConversionRule]
   /**
     * Provide the `org.jsoup.nodes.Node` instance with its markdown representation.
     *
@@ -39,7 +39,9 @@ trait MarkdownConverter {
     }
 
   private def isBlank(element: Element): Boolean =
-    element.nonEmptyTag && element.markdown.trim.isEmpty && element.tagName != "a"
+    element.nonEmptyTag &&
+      element.markdown.trim.isEmpty &&
+      element.attributes().size() == 0
 
   /**
     * Returns a new [[MarkdownConverter]] instance whose conversion rules are the concatenation of this instance and the given [[MarkdownConverter]]
