@@ -36,4 +36,4 @@ deployment:
       - cat /dev/null | sbt coverageReport
       - cat /dev/null | git config --global user.email "tk.qubo@gmail.com"
       - cat /dev/null | git config --global user.name "tkqubo"
-      - cat /dev/null | sbt ghpages-push-site
+      - cat /dev/null | sbt ghpagesPushSite
