@@ -17,6 +17,13 @@ dependencies:
   override:
     - echo "N/A"
 test:
+  pre:
+    - sudo apt-get update
+    - sudo apt-get install wget
+    - sudo wget -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.0.1/sbt-1.0.1.zip
+    - sudo unzip sbt-1.0.1.zip
+    - sudo mkdir -p /home/ubuntu/.sbt/.lib/1.0.1/
+    - sudo mv sbt/bin/sbt-launch.jar /home/ubuntu/.sbt/.lib/1.0.1/
   override:
     - cat /dev/null | sbt scalastyle clean coverage test coverageReport
   post:
