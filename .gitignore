@@ -5,6 +5,7 @@
 # sbt specific
 .cache
 .history
+.idea
 .lib/
 dist/*
 target/
