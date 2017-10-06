@@ -2,10 +2,12 @@ organization := "com.github.tkqubo"
 
 name := "html-to-markdown"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.3"
 
-val specs2Ver = "3.8.5"
-val jsoupVer = "1.9.2"
+crossScalaVersions := Seq("2.12.3", "2.11.11")
+
+val specs2Ver = "3.9.5"
+val jsoupVer = "1.10.3"
 
 libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % jsoupVer,
@@ -46,9 +48,9 @@ pomExtra := (
       </developer>
     </developers>
   )
-publishTo <<= version { (v: String) =>
+publishTo := {
   val nexus = "https://oss.sonatype.org/"
-  if (v.trim.endsWith("SNAPSHOT")) {
+  if (version.value.trim.endsWith("SNAPSHOT")) {
     Some("snapshots" at nexus + "content/repositories/snapshots")
   } else {
     Some("releases"  at nexus + "service/local/staging/deploy/maven2")
@@ -64,7 +66,5 @@ releasePublishArtifactsAction := PgpKeys.publishSigned.value
 crossPaths := false
 
 // sbt-ghpages
-site.settings
-site.includeScaladoc()
-ghpages.settings
+enablePlugins(GhpagesPlugin)
 git.remoteRepo := "git@github.com:tkqubo/scala-html-to-markdown.git"
