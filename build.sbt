@@ -35,11 +35,6 @@ pomExtra := (
         <url>http://opensource.org/licenses/MIT</url>
       </license>
     </licenses>
-    <scm>
-      <url>git@github.com:tkqubo/scala-html-to-markdown.git</url>
-      <connection>scm:git:github.com/tkqubo/scala-html-to-markdown.git</connection>
-      <developerConnection>scm:git:git@github.com:tkqubo/scala-html-to-markdown.git</developerConnection>
-    </scm>
     <developers>
       <developer>
         <id>tkqubo</id>
