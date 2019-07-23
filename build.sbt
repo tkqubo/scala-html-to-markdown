@@ -2,19 +2,23 @@ organization := "com.github.tkqubo"
 
 name := "html-to-markdown"
 
-scalaVersion := "2.12.3"
+val scala211 = "2.11.12"
+val scala212 = "2.12.8"
+val scala213 = "2.13.0"
 
-crossScalaVersions := Seq("2.12.3", "2.11.11")
+scalaVersion := scala212
 
-val specs2Ver = "3.9.5"
-val jsoupVer = "1.10.3"
+crossScalaVersions := Seq(scala211, scala212, scala213)
+
+val specs2Ver = "4.6.0"
+val jsoupVer = "1.12.1"
 
 libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % jsoupVer,
-  "org.specs2" %% "specs2-core" % specs2Ver % "test",
-  "org.specs2" %% "specs2-matcher" % specs2Ver % "test",
-  "org.specs2" %% "specs2-matcher-extra" % specs2Ver % "test",
-  "org.specs2" %% "specs2-mock" % specs2Ver % "test"
+  "org.specs2" %% "specs2-core" % specs2Ver % Test,
+  "org.specs2" %% "specs2-matcher" % specs2Ver % Test,
+  "org.specs2" %% "specs2-matcher-extra" % specs2Ver % Test,
+  "org.specs2" %% "specs2-mock" % specs2Ver % Test
 )
 
 javaOptions in Test ++= Seq(

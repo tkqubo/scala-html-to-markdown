@@ -2,7 +2,7 @@ package com.github.tkqubo.html2md.helpers
 
 import org.jsoup.nodes.{Element, Node, TextNode}
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 object NodeOps {
   /** Node's attribute name that hold a markdown text */
@@ -24,7 +24,7 @@ object NodeOps {
         case node: Element if node.hasAttr(markdownAttribute) =>
           node.attr(markdownAttribute)
         case node: Element =>
-          node.childNodes
+          node.childNodes.asScala
             .map(_.markdown)
             .reduceLeftOption(_ + _)
             .getOrElse("")

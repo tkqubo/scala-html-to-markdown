@@ -14,16 +14,19 @@ general:
 dependencies:
   cache_directories:
     - "~/.sbt"
+    - "~/.ivy2/cache"
+    - "~/.m2"
   override:
     - echo "N/A"
 test:
   pre:
+    - export SBT_VERSION="1.2.8"
     - sudo apt-get update
     - sudo apt-get install wget
-    - sudo wget -o sbt.zip https://github.com/sbt/sbt/releases/download/v1.0.1/sbt-1.0.1.zip
-    - sudo unzip sbt-1.0.1.zip
-    - sudo mkdir -p /home/ubuntu/.sbt/.lib/1.0.1/
-    - sudo mv sbt/bin/sbt-launch.jar /home/ubuntu/.sbt/.lib/1.0.1/
+    - sudo wget -o sbt.zip https://github.com/sbt/sbt/releases/download/v$SBT_VERSION/sbt-$SBT_VERSION.zip
+    - sudo unzip sbt-$SBT_VERSION.zip
+    - sudo mkdir -p /home/ubuntu/.sbt/.lib/$SBT_VERSION/
+    - sudo mv sbt/bin/sbt-launch.jar /home/ubuntu/.sbt/.lib/$SBT_VERSION/
   override:
     - cat /dev/null | sbt scalastyle clean coverage test coverageReport
   post:

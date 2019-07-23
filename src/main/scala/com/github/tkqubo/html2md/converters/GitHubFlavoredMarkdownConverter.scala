@@ -2,7 +2,7 @@ package com.github.tkqubo.html2md.converters
 
 import com.github.tkqubo.html2md.ConversionRule
 import org.jsoup.nodes.{Node, Element}
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 
 /**
@@ -28,7 +28,7 @@ class GitHubFlavoredMarkdownConverter
         .map(_.trim + " ")
         .mkString("").trim
       if (e.parent.tagName == "thead") {
-        val borderCells = e.children.map { head =>
+        val borderCells = e.children.asScala.map { head =>
           val align = Option(head.attr("align"))
           val marker = align match {
             case Some("left") => ":--"
@@ -56,8 +56,8 @@ class GitHubFlavoredMarkdownConverter
     Seq('thead, 'tbody, 'tfoot) -> { content: String => content.trim },
 
     // fenced code blocks
-    { e: Element => e.tagName == "pre" && e.children.headOption.exists(_.tagName == "code") } ->
-      { e: Element => s"\n\n```\n${e.children.head.text}```\n\n" },
+    { e: Element => e.tagName == "pre" && e.children.asScala.headOption.exists(_.tagName == "code") } ->
+      { e: Element => s"\n\n```\n${e.children.asScala.head.text}```\n\n" },
 
     // syntax-highlighted code blocks
     { e: Element => e.tagName == "pre" && e.parent.tagName == "div" && hasHighlight(e.parent) } -> { e: Element =>

@@ -4,7 +4,7 @@ import com.github.tkqubo.html2md.ConversionRule
 import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.nodes.Element
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 
 /**
   * Converts html text into markdown
@@ -54,8 +54,8 @@ class DefaultMarkdownConverter extends MarkdownConverter {
 
     // code blocks
     { e: Element =>
-      e.tagName() == "pre" && e.children().headOption.exists(_.tagName() == "code")
-    } -> { e: Element => s"\n\n    ${e.children().head.text.replaceAll("\n", "\n    ")}\n\n" },
+      e.tagName() == "pre" && e.children().asScala.headOption.exists(_.tagName() == "code")
+    } -> { e: Element => s"\n\n    ${e.children().asScala.head.text.replaceAll("\n", "\n    ")}\n\n" },
 
     'blockquote -> { content: String =>
       val replacement = content
@@ -83,6 +83,7 @@ class DefaultMarkdownConverter extends MarkdownConverter {
     Seq('ul, 'ol) -> { (content: String, e: Element) =>
       val children = e
         .children
+        .asScala
         .filter(_.tagName == "li")
         .map(_.markdown)
         .mkString("\n")
