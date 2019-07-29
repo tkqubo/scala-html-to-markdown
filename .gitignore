@@ -6,6 +6,8 @@
 .cache
 .history
 .idea
+.metals
+.bloop
 .lib/
 dist/*
 target/

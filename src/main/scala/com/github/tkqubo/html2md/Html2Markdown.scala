@@ -5,7 +5,7 @@ import com.github.tkqubo.html2md.helpers.NodeOps._
 import org.jsoup.Jsoup
 import org.jsoup.nodes._
 
-import scala.collection.JavaConversions._
+import scala.collection.JavaConverters._
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -42,9 +42,9 @@ class Html2Markdown(val converter: MarkdownConverter) {
       var e: Node = inQueue.head
       inQueue = inQueue.tail
       outQueue += e
-      inQueue ++= e.childNodes()
+      inQueue ++= e.childNodes().asScala
     }
-    outQueue.tail
+    outQueue.tail.toSeq
   }
 }
 
